@@ -8,11 +8,11 @@ public struct ConsoleLogger: LoggerService {
         return rVal
     }()
 
-    public var minimalLogLevel: LogLevel = .verbose
+    public var minimalLogLevel: CleevioLogLevel = .verbose
 
     public init() {}
 
-    public func log(info: LogInfo, level: LogLevel) {
+    public func log(info: LogInfo, level: CleevioLogLevel) {
         guard level >= minimalLogLevel else { return }
         print("\(formatter.string(from: info.date)) \(info.formattedMessage)")
     }

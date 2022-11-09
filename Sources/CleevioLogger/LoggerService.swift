@@ -1,8 +1,8 @@
 import Foundation
 
 public protocol LoggerService {
-    var minimalLogLevel: LogLevel { get set }
+    var minimalLogLevel: CleevioLogLevel { get set }
 
-    func log(info: LogInfo, level: LogLevel)
+    func log(info: LogInfo, level: CleevioLogLevel)
     func configureUserInfo(username: String?)
 }
