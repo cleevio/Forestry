@@ -1,5 +1,5 @@
-#if canImport(Datadog)
 import Foundation
+import CleevioLoggerLibrary
 import Datadog
 
 /// Sends all logs to the Datadog.
@@ -9,7 +9,7 @@ public class DDLogger: LoggerService {
     private let logger: Logger
     private var username: String?
 
-    public var minimalLogLevel: LogLevel = .verbose
+    public var minimalLogLevel: CleevioLoggerLibrary.LogLevel = .verbose
 
     public init(clientToken: String, environment: String, serviceName: String) {
         self.clientToken = clientToken
@@ -29,7 +29,7 @@ public class DDLogger: LoggerService {
             .build()
     }
 
-    public func log(info: LogInfo, level: LogLevel) {
+    public func log(info: LogInfo, level: CleevioLoggerLibrary.LogLevel) {
         guard level >= minimalLogLevel else { return }
         switch level {
         case .verbose:
@@ -57,4 +57,3 @@ public class DDLogger: LoggerService {
         self.username = username
     }
 }
-#endif

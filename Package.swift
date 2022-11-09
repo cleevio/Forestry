@@ -4,12 +4,21 @@
 import PackageDescription
 
 let package = Package(
-    name: "CleevioLogger",
+    name: "CleevioLoggerLibrary",
     products: [
-        .library(name: "CleevioLogger", targets: ["CleevioLogger"])
+        .library(name: "CleevioLoggerLibrary", targets: ["CleevioLoggerLibrary"]),
+        .library(name: "DatadogSupport", targets: ["CleevioLoggerLibrary", "DatadogSupport"]),
+        .library(name: "SwiftyBeaverSupport", targets: ["CleevioLoggerLibrary", "SwiftyBeaverSupport"]),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "https://github.com/DataDog/dd-sdk-ios", from: .init(1, 13, 0)),
+        .package(url: "https://github.com/SwiftyBeaver/SwiftyBeaver", from: .init(1, 9, 6))
+    ],
     targets: [
-        .target(name: "CleevioLogger", dependencies: []),
+        .target(name: "CleevioLoggerLibrary", dependencies: []),
+        .target(name: "DatadogSupport",
+                dependencies: [.product(name: "Datadog", package: "dd-sdk-ios")]),
+        .target(name: "SwiftyBeaverSupport",
+                dependencies: [.product(name: "SwiftyBeaver", package: "SwiftyBeaver")])
     ]
 )
