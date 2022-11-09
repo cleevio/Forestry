@@ -9,6 +9,8 @@ public class DDLogger: LoggerService {
     private let logger: Logger
     private var username: String?
 
+    public var minimalLogLevel: LogLevel = .debug
+
     public init(clientToken: String, environment: String, serviceName: String) {
         self.clientToken = clientToken
         Datadog.initialize(appContext: .init(),
