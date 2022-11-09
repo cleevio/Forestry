@@ -9,7 +9,7 @@ public class DDLogger: LoggerService {
     private let logger: Logger
     private var username: String?
 
-    public var minimalLogLevel: LogLevel = .debug
+    public var minimalLogLevel: LogLevel = .verbose
 
     public init(clientToken: String, environment: String, serviceName: String) {
         self.clientToken = clientToken

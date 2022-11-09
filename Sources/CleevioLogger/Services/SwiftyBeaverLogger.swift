@@ -8,7 +8,7 @@ public struct SwiftyBeaverLogger: LoggerService {
     private let logger = SwiftyBeaver.self
     private let cloudLogger: SBPlatformDestination
 
-    public var minimalLogLevel: LogLevel = .debug
+    public var minimalLogLevel: LogLevel = .verbose
 
     public init(cloudLogger: SBPlatformDestination) {
         self.cloudLogger = cloudLogger

@@ -8,7 +8,7 @@ public struct ConsoleLogger: LoggerService {
         return rVal
     }()
 
-    public var minimalLogLevel: LogLevel = .debug
+    public var minimalLogLevel: LogLevel = .verbose
 
     public init() {}
 
