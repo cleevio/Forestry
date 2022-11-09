@@ -9,14 +9,18 @@ public class DDLogger: LoggerService {
     private let logger: Logger
     private var username: String?
 
-    public init(clientToken: String) {
+    public init(clientToken: String, environment: String, serviceName: String) {
         self.clientToken = clientToken
         Datadog.initialize(appContext: .init(),
                            trackingConsent: .granted,
-                           configuration: Datadog.Configuration.builderUsing(clientToken: clientToken, environment: EnvironmentConfiguration.current.environment.rawValue).build()
+                           configuration: Datadog.Configuration.builderUsing(
+                            clientToken: clientToken,
+                            environment: environment)
+                            .build()
         )
 
         logger = Logger.builder
+            .set(serviceName: serviceName)
             .sendNetworkInfo(true)
             .sendLogsToDatadog(true)
             .printLogsToConsole(false)
