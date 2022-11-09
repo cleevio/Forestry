@@ -9,6 +9,8 @@ public class DDLogger: LoggerService {
     private let logger: Logger
     private var username: String?
 
+    public var minimalLogLevel: LogLevel = .verbose
+
     public init(clientToken: String, environment: String, serviceName: String) {
         self.clientToken = clientToken
         Datadog.initialize(appContext: .init(),
@@ -28,6 +30,7 @@ public class DDLogger: LoggerService {
     }
 
     public func log(info: LogInfo, level: LogLevel) {
+        guard level >= minimalLogLevel else { return }
         switch level {
         case .verbose:
             logger.notice(info.formattedMessage, attributes: defaultAttributes)
