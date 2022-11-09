@@ -8,9 +8,12 @@ public struct ConsoleLogger: LoggerService {
         return rVal
     }()
 
+    public var minimalLogLevel: LogLevel = .debug
+
     public init() {}
 
     public func log(info: LogInfo, level: LogLevel) {
+        guard level >= minimalLogLevel else { return }
         print("\(formatter.string(from: info.date)) \(info.formattedMessage)")
     }
 
