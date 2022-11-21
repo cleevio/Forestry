@@ -30,7 +30,6 @@ public class DDLogger: LoggerService {
     }
 
     public func log(info: LogInfo, level: CleevioLoggerLibrary.LogLevel) {
-        guard level >= minimalLogLevel else { return }
         switch level {
         case .verbose:
             logger.notice(info.formattedMessage, attributes: defaultAttributes)
