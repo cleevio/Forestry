@@ -19,19 +19,44 @@ public struct SwiftyBeaverLogger: LoggerService {
         switch info.level {
         case .verbose:
             logger.verbose(
-                info.message, info.file, info.function, line: info.line, context: Thread.current.debugDescription)
+                info.message,
+                info.file,
+                info.function,
+                line: info.line,
+                context: Thread.current.debugDescription
+            )
         case .debug:
             logger.debug(
-                info.message, info.file, info.function, line: info.line, context: Thread.current.debugDescription)
+                info.message,
+                info.file,
+                info.function,
+                line: info.line,
+                context: Thread.current.debugDescription
+            )
         case .info:
             logger.info(
-                info.message, info.file, info.function, line: info.line, context: Thread.current.debugDescription)
+                info.message,
+                info.file,
+                info.function,
+                line: info.line,
+                context: Thread.current.debugDescription
+            )
         case .warning:
             logger.warning(
-                info.message, info.file, info.function, line: info.line, context: Thread.current.debugDescription)
+                info.message,
+                info.file,
+                info.function,
+                line: info.line,
+                context: Thread.current.debugDescription
+            )
         case .error:
             logger.error(
-                info.message, info.file, info.function, line: info.line, context: Thread.current.debugDescription)
+                info.message,
+                info.file,
+                info.function,
+                line: info.line,
+                context: Thread.current.debugDescription
+            )
         }
     }
 
