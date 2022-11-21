@@ -10,32 +10,37 @@ public struct CleevioLogger {
 
     // MARK: - Logging levels
 
-    public func verbose(_ message: @escaping @autoclosure () -> Any, file: String = #file, function: String = #function, line: Int = #line) {
-        let info = LogInfo(line: line, function: function, file: file, message: message, icon: "📢")
-        services.forEach { $0.log(info: info, level: .verbose) }
+    public func verbose(_ message: @autoclosure () -> Any, file: String = #file, function: String = #function, line: Int = #line) {
+        log(message, level: .verbose, file: file, function: function, line: line)
     }
 
-    public func debug(_ message: @escaping @autoclosure () -> Any, file: String = #file, function: String = #function, line: Int = #line) {
-        let info = LogInfo(line: line, function: function, file: file, message: message, icon: "✅")
-        services.forEach { $0.log(info: info, level: .debug) }
+    public func debug(_ message: @autoclosure () -> Any, file: String = #file, function: String = #function, line: Int = #line) {
+        log(message, level: .debug, file: file, function: function, line: line)
     }
 
-    public func info(_ message: @escaping @autoclosure () -> Any, file: String = #file, function: String = #function, line: Int = #line) {
-        let info = LogInfo(line: line, function: function, file: file, message: message, icon: "ℹ️")
-        services.forEach { $0.log(info: info, level: .info) }
+    public func info(_ message: @autoclosure () -> Any, file: String = #file, function: String = #function, line: Int = #line) {
+        log(message, level: .info, file: file, function: function, line: line)
     }
 
-    public func warning(_ message: @escaping @autoclosure () -> Any, file: String = #file, function: String = #function, line: Int = #line) {
-        let info = LogInfo(line: line, function: function, file: file, message: message, icon: "⚠️")
-        services.forEach { $0.log(info: info, level: .warning) }
+    public func warning(_ message: @autoclosure () -> Any, file: String = #file, function: String = #function, line: Int = #line) {
+        log(message, level: .warning, file: file, function: function, line: line)
     }
 
-    public func error(_ message: @escaping @autoclosure () -> Any, file: String = #file, function: String = #function, line: Int = #line) {
-        let info = LogInfo(line: line, function: function, file: file, message: message, icon: "🛑")
-        services.forEach { $0.log(info: info, level: .error) }
+    public func error(_ message: @autoclosure () -> Any, file: String = #file, function: String = #function, line: Int = #line) {
+        log(message, level: .error, file: file, function: function, line: line)
     }
 
     public func setUserInfo(username: String?) {
         services.forEach { $0.configureUserInfo(username: username) }
+    }
+
+    private func log(_ message: () -> Any, level: LogLevel, file: String, function: String, line: Int) {
+        let availableServices = services.filter { $0.minimalLogLevel >= level }
+        guard !availableServices.isEmpty else { return }
+        let info = LogInfo(level: level, line: line, function: function, file: file, message: message(), icon: level.icon)
+        availableServices.forEach { service in
+            guard service.minimalLogLevel >= level else { return }
+            service.log(info: info)
+        }
     }
 }
