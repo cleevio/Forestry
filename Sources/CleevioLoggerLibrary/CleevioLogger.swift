@@ -39,7 +39,7 @@ public struct CleevioLogger {
         let info = LogInfo(level: level, line: line, function: function, file: file, message: message(), icon: level.icon)
         services.forEach { service in
             guard service.minimalLogLevel >= level else { return }
-            service.log(info: info, level: level)
+            service.log(info: info)
         }
     }
 }
