@@ -8,4 +8,19 @@ public enum LogLevel: Int, Comparable {
     public static func < (lhs: LogLevel, rhs: LogLevel) -> Bool {
         lhs.rawValue < rhs.rawValue
     }
+
+    var icon: String {
+        switch self {
+        case .verbose:
+            return "📢"
+        case .debug:
+            return "✅"
+        case .info:
+            return "ℹ️"
+        case .warning:
+            return "⚠️"
+        case .error:
+            return "🛑"
+        }
+    }
 }
