@@ -2,7 +2,7 @@ import Foundation
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct CleevioLogger {
-    private let loggerActor: LoggerActor
+    private let loggerActor: LoggerActor?
 
     public init(services: [LoggerService]) {
         self.loggerActor = .init(services: services)
@@ -31,12 +31,14 @@ public struct CleevioLogger {
     }
 
     public func setUserInfo(username: String?) {
+        guard let loggerActor else { return }
         Task.detached {
             await loggerActor.setUserInfo(username: username)
         }
     }
 
     private func log(_ message: @escaping () -> Any, level: LogLevel, file: String, function: String, line: Int) {
+        guard let loggerActor else { return }
         Task.detached(priority: .utility) { [message] in
             await loggerActor.log(message, level: level, file: file, function: function, line: line)
         }
@@ -54,7 +56,8 @@ private extension CleevioLogger {
     final actor LoggerActor {
         private let services: [LoggerService]
 
-        init(services: [LoggerService]) {
+        init?(services: [LoggerService]) {
+            guard !services.isEmpty else { return nil }
             self.services = services
         }
         
