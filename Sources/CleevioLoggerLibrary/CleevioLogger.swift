@@ -5,7 +5,7 @@ public struct CleevioLogger {
     private let loggerActor: LoggerActor
 
     public init(services: [LoggerService]) {
-        }
+        self.loggerActor = .init(services: services)
     }
 
     // MARK: - Logging levels
