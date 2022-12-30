@@ -5,10 +5,7 @@ public struct CleevioLogger {
     private let loggerActor: LoggerActor
 
     public init(services: [LoggerService]) {
-        guard !services.isEmpty else {
-            fatalError("You can't create Logger without providing logging services!")
         }
-        self.loggerActor = .init(services: services)
     }
 
     // MARK: - Logging levels
@@ -58,9 +55,6 @@ private extension CleevioLogger {
         private let services: [LoggerService]
 
         init(services: [LoggerService]) {
-            guard !services.isEmpty else {
-                fatalError("You can't create Logger without providing logging services!")
-            }
             self.services = services
         }
         
