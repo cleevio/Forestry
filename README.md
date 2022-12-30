@@ -36,7 +36,12 @@ public var Log = CleevioLogger(services: [ConsoleLogger()])
 #else
 public var Log = CleevioLogger(services: [ConsoleLogger(), SwiftyBeaverLogger()])
 #endif
+```
 
+It is also possible to instantiate services with convenience functions:
+```swift
+public var Log = CleevioLogger(service: .console)
+public var Log2 = CleevioLogger(services: [.console, .datadog(clientToken: "", environment: "", serviceName: "")])
 ```
 
 

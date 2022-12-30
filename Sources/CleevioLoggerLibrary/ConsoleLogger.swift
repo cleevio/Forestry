@@ -15,3 +15,7 @@ public struct ConsoleLogger: LoggerService {
 
     public func configureUserInfo(username: String?) {}
 }
+
+public extension LoggerService where Self == ConsoleLogger {
+    static var console: ConsoleLogger { ConsoleLogger() }
+}

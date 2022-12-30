@@ -8,6 +8,10 @@ public struct CleevioLogger {
         self.loggerActor = .init(services: services)
     }
 
+    public init(service: LoggerService) {
+        self.logger = .init(services: [service])
+    }
+
     // MARK: - Logging levels
 
     public func verbose(_ message: @escaping @autoclosure () -> Any, file: String = #file, function: String = #function, line: Int = #line) {

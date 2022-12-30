@@ -67,3 +67,9 @@ public struct SwiftyBeaverLogger: LoggerService {
         cloudLogger.analyticsUserName = username
     }
 }
+
+public extension LoggerService where Self == SwiftyBeaverLogger {
+    static func swiftyBeaver(cloudLogger: SBPlatformDestination) -> SwiftyBeaverLogger {
+        .init(cloudLogger: cloudLogger)
+    }
+}
