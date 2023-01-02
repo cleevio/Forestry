@@ -35,11 +35,10 @@ public struct CleevioLogger {
     }
 
     private func log(_ message: () -> Any, level: LogLevel, file: String, function: String, line: Int) {
-        let availableServices = services.filter { $0.minimalLogLevel >= level }
+        let availableServices = services.filter { $0.minimalLogLevel <= level }
         guard !availableServices.isEmpty else { return }
         let info = LogInfo(level: level, line: line, function: function, file: file, message: message(), icon: level.icon)
         availableServices.forEach { service in
-            guard service.minimalLogLevel >= level else { return }
             service.log(info: info)
         }
     }
