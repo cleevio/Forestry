@@ -1,3 +1,5 @@
+import Foundation
+
 public struct CleevioLogger {
     private let services: [LoggerService]
 
@@ -39,4 +41,10 @@ public struct CleevioLogger {
             service.log(info: info)
         }
     }
+
+    public static let baseDateFormatter: DateFormatter = {
+        let rVal = DateFormatter()
+        rVal.dateFormat = "HH:mm:ss.SSS"
+        return rVal
+    }()
 }

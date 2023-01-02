@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CleevioLoggerLibrary
 
 public extension FileLogger {
     struct Configuration {
@@ -14,13 +15,15 @@ public extension FileLogger {
             syncAfterEachWrite: Bool = false,
             fileManager: FileManager = .default,
             logFileMaxSize: Int = 1 * 1_024 * 1_024,
-            dropFirst: Int = 1_000
+            dropFirst: Int = 1_000,
+            dateFormatter: DateFormatter = CleevioLogger.baseDateFormatter
         ) {
             self.logFileURL = logFileURL ?? fileManager.logFileURL()
             self.syncAfterEachWrite = syncAfterEachWrite
             self.fileManager = fileManager
             self.logFileMaxSize = logFileMaxSize
             self.dropFirst = dropFirst
+            self.dateFormatter = dateFormatter
         }
         
         
@@ -31,7 +34,7 @@ public extension FileLogger {
         // how many bytes should a logfile have until it is trim?
         public var logFileMaxSize: Int
         public var dropFirst: Int
-
+        public var dateFormatter: DateFormatter
     }
 }
 

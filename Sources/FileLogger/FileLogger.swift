@@ -17,19 +17,13 @@ public struct FileLogger: LoggerService {
         configuration.fileManager
     }
 
-    private let formatter: DateFormatter = {
-        let rVal = DateFormatter()
-        rVal.dateFormat = "HH:mm:ss.SSS"
-        return rVal
-    }()
-
     public init(minimalLogLevel: LogLevel = .debug, configuration: Configuration = .init()) {
         self.minimalLogLevel = minimalLogLevel
         self.configuration = configuration
     }
         
     public func log(info: CleevioLoggerLibrary.LogInfo) {
-        if !saveToValidatedFile(message: "\(formatter.string(from: info.date)) \(info.formattedMessage)") {
+        if !saveToValidatedFile(message: "\(configuration.dateFormatter.string(from: info.date)) \(info.formattedMessage)") {
             print("FileLogger: Unable to write to file")
         }
     }
@@ -40,7 +34,7 @@ public struct FileLogger: LoggerService {
     func saveToValidatedFile(message: String) -> Bool {
         guard let url = configuration.logFileURL else { return false }
         let filePath = url.path
-        if fileManager.fileExists(atPath: filePath) == true {
+        if fileManager.fileExists(atPath: filePath) {
             do {
                 var fileSize = try getFileSize(atPath: filePath)
                 while fileSize > configuration.logFileMaxSize {
