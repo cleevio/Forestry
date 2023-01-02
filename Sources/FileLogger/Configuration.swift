@@ -16,7 +16,7 @@ public extension FileLogger {
             fileManager: FileManager = .default,
             logFileMaxSize: Int = 1 * 1_024 * 1_024,
             dropFirst: Int = 1_000,
-            dateFormatter: DateFormatter = CleevioLogger.baseDateFormatter
+            dateFormatter: DateFormatter = CleevioLoggerFormatter.baseDateFormatter
         ) {
             self.logFileURL = logFileURL ?? fileManager.logFileURL()
             self.syncAfterEachWrite = syncAfterEachWrite

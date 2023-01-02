@@ -5,7 +5,7 @@ public struct ConsoleLogger: LoggerService {
     public var minimalLogLevel: LogLevel = .verbose
     public var dateFormatter: DateFormatter
 
-    public init(dateFormatter: DateFormatter = CleevioLogger.baseDateFormatter) {
+    public init(dateFormatter: DateFormatter = CleevioLoggerFormatter.baseDateFormatter) {
         self.dateFormatter = dateFormatter
     }
 

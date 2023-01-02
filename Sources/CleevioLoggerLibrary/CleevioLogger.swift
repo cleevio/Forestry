@@ -9,7 +9,7 @@ public struct CleevioLogger {
     }
 
     public init(service: LoggerService) {
-        self.logger = .init(services: [service])
+        self.loggerActor = .init(services: [service])
     }
 
     // MARK: - Logging levels
@@ -47,12 +47,6 @@ public struct CleevioLogger {
             await loggerActor.log(message, level: level, file: file, function: function, line: line)
         }
     }
-
-    public static let baseDateFormatter: DateFormatter = {
-        let rVal = DateFormatter()
-        rVal.dateFormat = "HH:mm:ss.SSS"
-        return rVal
-    }()
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
