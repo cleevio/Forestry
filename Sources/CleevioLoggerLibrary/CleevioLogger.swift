@@ -1,10 +1,9 @@
+import Foundation
+
 public struct CleevioLogger {
     private let services: [LoggerService]
 
     public init(services: [LoggerService]) {
-        guard !services.isEmpty else {
-            fatalError("You can't create Logger without providing logging services!")
-        }
         self.services = services
     }
 
@@ -42,4 +41,10 @@ public struct CleevioLogger {
             service.log(info: info)
         }
     }
+
+    public static let baseDateFormatter: DateFormatter = {
+        let rVal = DateFormatter()
+        rVal.dateFormat = "HH:mm:ss.SSS"
+        return rVal
+    }()
 }
