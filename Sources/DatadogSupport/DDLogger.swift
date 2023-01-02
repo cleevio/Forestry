@@ -56,3 +56,9 @@ public class DDLogger: LoggerService {
         self.username = username
     }
 }
+
+public extension LoggerService where Self == DDLogger {
+    static func datadog(clientToken: String, environment: String, serviceName: String) -> DDLogger {
+        .init(clientToken: clientToken, environment: environment, serviceName: serviceName)
+    }
+}
