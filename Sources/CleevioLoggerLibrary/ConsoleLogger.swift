@@ -17,5 +17,5 @@ public struct ConsoleLogger: LoggerService {
 }
 
 public extension LoggerService where Self == ConsoleLogger {
-    static var console: ConsoleLogger { ConsoleLogger() }
+    static var console: ConsoleLogger { .init() }
 }
