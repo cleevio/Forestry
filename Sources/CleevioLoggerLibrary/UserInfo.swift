@@ -37,9 +37,9 @@ public enum LogUserInfoKey: Hashable {
 
     public var type: KeyType {
         switch self {
-        case .email, .username, .deviceID, .buildNumber, .userID:
+        case .buildNumber:
             return .tag
-        case .sceneIdentifier:
+        case .sceneIdentifier, .email, .username, .deviceID, .userID:
             return .parameter
         case let .custom(_, type):
             return type
