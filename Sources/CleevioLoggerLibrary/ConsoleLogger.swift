@@ -12,8 +12,6 @@ public struct ConsoleLogger: LoggerService {
     public func log(info: LogInfo) {
         print("\(dateFormatter.string(from: info.date)) \(info.formattedMessage)")
     }
-
-    public func configureUserInfo(username: String?) {}
 }
 
 public extension LoggerService where Self == ConsoleLogger {
