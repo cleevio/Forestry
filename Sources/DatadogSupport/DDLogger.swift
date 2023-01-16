@@ -25,13 +25,12 @@ public class DDLogger: LoggerService {
             configuration: Datadog.Configuration.builderUsing(
                 clientToken: clientToken,
                 environment: environment)
+            .set(uploadFrequency: uploadFrequency)
             .build()
         )
 
         logger = Logger.builder
             .set(serviceName: serviceName)
-        // TODO: Make it work
-//            .set(uploadFrequency: uploadFrequency)
             .sendNetworkInfo(true)
             .sendLogsToDatadog(true)
             .printLogsToConsole(false)
