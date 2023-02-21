@@ -12,7 +12,7 @@ let package = Package(
         .library(name: "SwiftyBeaverSupport", targets: ["SwiftyBeaverSupport"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/DataDog/dd-sdk-ios", from: .init(1, 13, 0)),
+        .package(url: "https://github.com/DataDog/dd-sdk-ios", from: .init(1, 15, 0)),
         .package(url: "https://github.com/SwiftyBeaver/SwiftyBeaver", from: .init(1, 9, 6))
     ],
     targets: [
@@ -20,7 +20,7 @@ let package = Package(
         .target(name: "FileLogger", dependencies: ["CleevioLoggerLibrary"]),
         .target(name: "DatadogSupport",
                 dependencies: [
-                    .product(name: "Datadog", package: "dd-sdk-ios"),
+                    .product(name: "Datadog", package: "dd-sdk-ios", condition: .when(platforms: [.iOS])),
                     .target(name: "CleevioLoggerLibrary")
                 ]),
         .target(name: "SwiftyBeaverSupport",
