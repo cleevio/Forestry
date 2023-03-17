@@ -39,6 +39,11 @@ public struct CleevioLogger {
         log(message, level: .error, file: file, function: function, line: line)
     }
 
+    @inlinable
+    public func updateUserInfo(for key: LogUserInfoKey, with value: String) {
+        updateUserInfo(for: [key: value])
+    }
+
     public func updateUserInfo(for values: [LogUserInfoKey: String]) {
         guard let loggerActor else { return }
         Task.detached {
@@ -64,13 +69,17 @@ public struct CleevioLogger {
             await loggerActor.log(message, level: level, file: file, function: function, line: line)
         }
     }
+    
+    public func currentUserInfo() async -> [LogUserInfoKey: String] {
+        await loggerActor?.userInfo ?? [:]
+    }
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 private extension CleevioLogger {
     final actor LoggerActor {
         private let services: [LoggerService]
-        private var userInfo: [LogUserInfoKey: String] = [:]
+        var userInfo: [LogUserInfoKey: String] = [:]
 
         init?(services: [LoggerService]) {
             guard !services.isEmpty else { return nil }
