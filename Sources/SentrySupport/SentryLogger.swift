@@ -15,6 +15,7 @@ public struct SentryLogger: LoggerService {
         let event = Event()
         event.message = SentryMessage(formatted: info.formattedMessage)
         event.level = info.level.asSentryLevel
+        event.fingerprint = [info.file, info.function, String(info.line)]
         SentrySDK.capture(event: event)
     }
 }
