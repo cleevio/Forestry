@@ -9,7 +9,7 @@ public struct LogRocketLogger: LoggerService {
 
     public init(appID: String) {
         let config = Configuration(appID: appID)
-        SDK.initialize(configuration: config)
+        LogRocket.SDK.initialize(configuration: config)
     }
 
     public func log(info: LogInfo) {
@@ -32,9 +32,9 @@ public struct LogRocketLogger: LoggerService {
         userInfo.removeValue(forKey: LogUserInfoKey.userID.rawValue)
 
         guard let userID = dictionary[.userID] else {
-            SDK.identifyAsAnonymous(userID: UUID().uuidString, userInfo: userInfo)
+            LogRocket.SDK.identifyAsAnonymous(userID: UUID().uuidString, userInfo: userInfo)
             return
         }
-        SDK.identify(userID: userID, userInfo: userInfo)
+        LogRocket.SDK.identify(userID: userID, userInfo: userInfo)
     }
 }
