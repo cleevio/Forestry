@@ -46,3 +46,11 @@ extension LogUserInfoKey {
         case parameter
     }
 }
+
+public extension Dictionary where Key == LogUserInfoKey, Value == String {
+    var asStringKeyedDictionary: [String: String] {
+        reduce(into: [:]) { result, element in
+            result[element.key.rawValue] = element.value
+        }
+    }
+}

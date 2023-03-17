@@ -18,6 +18,12 @@ public struct SentryLogger: LoggerService {
         event.fingerprint = [info.file, info.function, String(info.line)]
         SentrySDK.capture(event: event)
     }
+
+    public func configureUserInfo(_ dictionary: [LogUserInfoKey : String]) {
+        SentrySDK.configureScope { scope in
+            scope.setTags(dictionary.asStringKeyedDictionary)
+        }
+    }
 }
 
 private extension LogLevel {
