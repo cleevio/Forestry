@@ -36,3 +36,9 @@ public struct LogRocketLogger: LoggerService {
         LogRocket.SDK.identify(userID: userID, userInfo: userInfo)
     }
 }
+
+public extension LoggerService where Self == LogRocketLogger {
+    static func logRocket(appID: String) -> LogRocketLogger {
+        .init(appID: appID)
+    }
+}
