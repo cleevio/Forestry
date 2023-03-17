@@ -25,7 +25,16 @@ public struct LogRocketLogger: LoggerService {
         }
     }
 
-    public func configureUserInfo(username: String?) {
-        // Not supported
+    public func configureUserInfo(_ dictionary: [LogUserInfoKey : String]) {
+        var userInfo: [String: String] = dictionary.reduce(into: [:]) { result, element in
+            result[element.key.rawValue] = element.value
+        }
+        userInfo.removeValue(forKey: LogUserInfoKey.userID.rawValue)
+
+        guard let userID = dictionary[.userID] else {
+            SDK.identifyAsAnonymous(userID: UUID().uuidString, userInfo: userInfo)
+            return
+        }
+        SDK.identify(userID: userID, userInfo: userInfo)
     }
 }
