@@ -13,7 +13,8 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/DataDog/dd-sdk-ios", from: .init(1, 15, 0)),
-        .package(url: "https://github.com/SwiftyBeaver/SwiftyBeaver", from: .init(1, 9, 6))
+        .package(url: "https://github.com/SwiftyBeaver/SwiftyBeaver", from: .init(1, 9, 6)),
+        .package(url: "https://github.com/LogRocket/logrocket-ios-swift-package", from: .init(1, 12, 0))
     ],
     targets: [
         .target(name: "CleevioLoggerLibrary", dependencies: []),
@@ -26,6 +27,11 @@ let package = Package(
         .target(name: "SwiftyBeaverSupport",
                 dependencies: [
                     .product(name: "SwiftyBeaver", package: "SwiftyBeaver"),
+                    .target(name: "CleevioLoggerLibrary")
+                ]),
+        .target(name: "LogRocketSupport",
+                dependencies: [
+                    .product(name: "LogRocket", package: "logrocket-ios-swift-package"),
                     .target(name: "CleevioLoggerLibrary")
                 ])
     ]
