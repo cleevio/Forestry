@@ -48,7 +48,7 @@ extension LogUserInfoKey {
 }
 
 public extension Dictionary where Key == LogUserInfoKey, Value == String {
-    var asStringKeyedDictionary: [String: String] {
+    var stringKeyedDictionary: [String: String] {
         reduce(into: [:]) { result, element in
             result[element.key.rawValue] = element.value
         }

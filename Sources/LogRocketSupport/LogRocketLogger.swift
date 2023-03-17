@@ -26,7 +26,7 @@ public struct LogRocketLogger: LoggerService {
     }
 
     public func configureUserInfo(_ dictionary: [LogUserInfoKey : String]) {
-        var userInfo: [String: String] = dictionary.asStringKeyedDictionary
+        var userInfo: [String: String] = dictionary.stringKeyedDictionary
         userInfo.removeValue(forKey: LogUserInfoKey.userID.rawValue)
 
         guard let userID = dictionary[.userID] else {

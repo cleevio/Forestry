@@ -21,7 +21,7 @@ public struct SentryLogger: LoggerService {
 
     public func configureUserInfo(_ dictionary: [LogUserInfoKey : String]) {
         SentrySDK.configureScope { scope in
-            scope.setTags(dictionary.asStringKeyedDictionary)
+            scope.setTags(dictionary.stringKeyedDictionary)
         }
     }
 }
