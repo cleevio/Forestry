@@ -53,6 +53,7 @@ public struct CleevioLogger {
         }
     }
 
+    @inlinable
     public func removeUserInfo(for key: LogUserInfoKey) {
         removeUserInfo(for: [key])
     }
