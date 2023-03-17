@@ -1,10 +1,3 @@
-//
-//  CleevioLoggerFormatter.swift
-//  
-//
-//  Created by Lukáš Valenta on 02.01.2023.
-//
-
 import Foundation
 
 public enum CleevioLoggerFormatter {

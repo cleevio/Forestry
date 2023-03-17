@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by Lukáš Valenta on 10.01.2023.
-//
-
 import Foundation
 
 public enum LogUserInfoKey: Hashable {
