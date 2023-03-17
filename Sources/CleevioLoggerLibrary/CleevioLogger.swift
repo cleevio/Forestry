@@ -39,33 +39,23 @@ public struct CleevioLogger {
         log(message, level: .error, file: file, function: function, line: line)
     }
 
-    public func setUserInfo(_ dictionary: [LogUserInfoKey: String]) {
+    public func updateUserInfo(for values: [LogUserInfoKey: String]) {
         guard let loggerActor else { return }
         Task.detached {
-            await loggerActor.setUserInfo(dictionary)
+            await loggerActor.updateUserInfo(for: values)
         }
     }
 
-    public func removeValues(for keys: [LogUserInfoKey]) {
+    public func removeUserInfo(for keys: [LogUserInfoKey]) {
         guard let loggerActor else { return }
         Task.detached {
             await loggerActor.removeUserInfo(for: keys)
         }
     }
-    
-    @inlinable
-    @available(*, deprecated, message: "Use setUserInfo() instead")
-    public func setUserInfo(username: String?) {
-        guard let username else { return removeValue(for: .username)}
-        let dictionary: [LogUserInfoKey: String] = [
-            .username: username
-            ]
-        setUserInfo(dictionary)
-    }
 
     @inlinable
-    public func removeValue(for key: LogUserInfoKey) {
-        removeValues(for: [key])
+    public func removeUserInfo(for key: LogUserInfoKey) {
+        removeUserInfo(for: [key])
     }
 
     public func log(_ message: @escaping () -> Any, level: LogLevel, file: String, function: String, line: Int) {
@@ -80,6 +70,7 @@ public struct CleevioLogger {
 private extension CleevioLogger {
     final actor LoggerActor {
         private let services: [LoggerService]
+        private var userInfo: [LogUserInfoKey: String] = [:]
 
         init?(services: [LoggerService]) {
             guard !services.isEmpty else { return nil }
@@ -95,12 +86,49 @@ private extension CleevioLogger {
             }
         }
     
-        func setUserInfo(_ dictionary: [LogUserInfoKey: String]) {
-            services.forEach { $0.configureUserInfo(dictionary) }
+        func updateUserInfo(for dictionary: [LogUserInfoKey: String]) {
+            for (key, value) in dictionary {
+                userInfo[key] = value
+            }
+            services.forEach { $0.configureUserInfo(userInfo) }
         }
 
         func removeUserInfo(for keys: [LogUserInfoKey]) {
-            services.forEach { $0.removeUserInfo(keys) }
+            keys.forEach { userInfo[$0] = nil }
+            services.forEach {
+                $0.removeUserInfo(keys)
+                $0.configureUserInfo(userInfo)
+            }
         }
+    }
+}
+
+// MARK: - Deprecated
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+extension CleevioLogger {
+    @available(*, deprecated, message: "Use updateUserInfo() instead")
+    public func setUserInfo(_ dictionary: [LogUserInfoKey: String]) {
+        updateUserInfo(for: dictionary)
+    }
+
+    @available(*, deprecated, message: "Use `removeUserInfo()` instead")
+    public func removeValues(for keys: [LogUserInfoKey]) {
+        removeUserInfo(for: keys)
+    }
+
+    @inlinable
+    @available(*, deprecated, message: "Use setUserInfo() instead")
+    public func setUserInfo(username: String?) {
+        guard let username else { return removeValue(for: .username)}
+        let dictionary: [LogUserInfoKey: String] = [
+            .username: username
+        ]
+        setUserInfo(dictionary)
+    }
+
+    @inlinable
+    @available(*, deprecated, message: "Use removeUserInfo() instead")
+    public func removeValue(for key: LogUserInfoKey) {
+        removeUserInfo(for: [key])
     }
 }
