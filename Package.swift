@@ -10,6 +10,7 @@ let package = Package(
         .library(name: "DatadogSupport", targets: ["DatadogSupport"]),
         .library(name: "FileLogger", targets: ["FileLogger"]),
         .library(name: "SwiftyBeaverSupport", targets: ["SwiftyBeaverSupport"]),
+        .library(name: "LogRocketSupport", targets: ["LogRocketSupport"]),
     ],
     dependencies: [
         .package(url: "https://github.com/DataDog/dd-sdk-ios", from: .init(1, 15, 0)),
