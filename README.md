@@ -44,7 +44,10 @@ public var Log = CleevioLogger(service: .console)
 public var Log2 = CleevioLogger(services: [.console, .datadog(clientToken: "", environment: "", serviceName: "")])
 ```
 
+You can always expend the functionality by creating your own logging service via conforming to the `LoggerService` protocol.
 ## TODO
+
+The public API of CleevioLoggerLibrary has full test coverage. Integration of services has so far been tested only manually when integrated into our projects.
 
 – Implement Thread support in log() function if possible
 – Implement handling UserInfo in SwiftyBeaverLogger

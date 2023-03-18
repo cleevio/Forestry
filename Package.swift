@@ -21,6 +21,7 @@ let package = Package(
     ],
     targets: [
         .target(name: "CleevioLoggerLibrary", dependencies: []),
+        .testTarget(name: "CleevioLoggerLibraryTests", dependencies: ["CleevioLoggerLibrary"]),
         .target(name: "FileLogger", dependencies: ["CleevioLoggerLibrary"]),
         .target(name: "DatadogSupport",
                 dependencies: [
