@@ -24,7 +24,7 @@ let package = Package(
         .target(name: "FileLogger", dependencies: ["CleevioLoggerLibrary"]),
         .target(name: "DatadogSupport",
                 dependencies: [
-                    .product(name: "Datadog", package: "dd-sdk-ios", condition: .when(platforms: [.iOS])),
+                    .product(name: "Datadog", package: "dd-sdk-ios", condition: .when(platforms: [.iOS, .macCatalyst])),
                     .target(name: "CleevioLoggerLibrary")
                 ]),
         .target(name: "SwiftyBeaverSupport",

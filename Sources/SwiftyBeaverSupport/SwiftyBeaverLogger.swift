@@ -16,55 +16,33 @@ public struct SwiftyBeaverLogger: LoggerService {
     }
 
     public func log(info: LogInfo) {
-        switch info.level {
-        case .verbose:
-            logger.verbose(
-                info.message,
-                info.file,
-                info.function,
-                line: info.line,
-                context: Thread.current.debugDescription
-            )
-        case .debug:
-            logger.debug(
-                info.message,
-                info.file,
-                info.function,
-                line: info.line,
-                context: Thread.current.debugDescription
-            )
-        case .info:
-            logger.info(
-                info.message,
-                info.file,
-                info.function,
-                line: info.line,
-                context: Thread.current.debugDescription
-            )
-        case .warning:
-            logger.warning(
-                info.message,
-                info.file,
-                info.function,
-                line: info.line,
-                context: Thread.current.debugDescription
-            )
-        case .error:
-            logger.error(
-                info.message,
-                info.file,
-                info.function,
-                line: info.line,
-                context: Thread.current.debugDescription
-            )
-        }
+        logger.custom(
+            level: info.level.asSwiftyBeaverLevel,
+            message: info.message,
+            file: info.file,
+            function: info.function,
+            line: info.line
+        )
     }
 
-    public func configureUserInfo(username: String?) {
-        guard let username = username else {
-            return
+    // TODO: Handle user info
+    public func configureUserInfo(_ dictionary: [LogUserInfoKey : String]) { }
+}
+
+extension LogLevel {
+    var asSwiftyBeaverLevel: SwiftyBeaver.Level {
+        switch self {
+        case .verbose:
+            return .verbose
+        case .debug:
+            return .debug
+        case .info:
+            return .info
+        case .warning:
+            return .warning
+        case .error:
+            return .error
         }
-        cloudLogger.analyticsUserName = username
     }
 }
 

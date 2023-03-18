@@ -37,25 +37,14 @@ public class DDLogger: LoggerService {
             .build()
     }
 
-    public func log(info: LogInfo) {
+    public func log(info: CleevioLoggerLibrary.LogInfo) {
         var attributes = info.datadogAttributes
         
         for (key, value) in userInfo {
             attributes[key] = value
         }
         
-        switch info.level {
-        case .verbose:
-            logger.notice(info.formattedMessage, attributes: attributes)
-        case .debug:
-            logger.debug(info.formattedMessage, attributes: attributes)
-        case .info:
-            logger.info(info.formattedMessage, attributes: attributes)
-        case .warning:
-            logger.warn(info.formattedMessage, attributes: attributes)
-        case .error:
-            logger.error(info.formattedMessage, attributes: attributes)
-        }
+        logger.log(level: info.datadogLogLevel, message: info.formattedMessage, error: nil, attributes: attributes)
     }
 
     public func configureUserInfo(_ dictionary: [LogUserInfoKey : String]) {

@@ -9,6 +9,8 @@ import Foundation
 import CleevioLoggerLibrary
 import Datadog
 
+typealias LogInfo = CleevioLoggerLibrary.LogInfo
+
 extension LogInfo {
     var datadogAttributes: [AttributeKey: AttributeValue] {
         [
