@@ -1,6 +1,8 @@
 import Foundation
-import LogRocket
 import CleevioLoggerLibrary
+
+#if canImport(LogRocket)
+import LogRocket
 
 /// Sends all logs to the Log Rocket cloud.
 public struct LogRocketLogger: LoggerService {
@@ -42,3 +44,4 @@ public extension LoggerService where Self == LogRocketLogger {
         .init(appID: appID)
     }
 }
+#endif
