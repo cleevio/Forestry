@@ -38,6 +38,7 @@ public struct LogRocketLogger: LoggerService {
 }
 
 public extension LoggerService where Self == LogRocketLogger {
+    @inlinable
     static func logRocket(appID: String) -> LogRocketLogger {
         .init(appID: appID)
     }

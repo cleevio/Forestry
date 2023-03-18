@@ -45,6 +45,7 @@ private extension LogLevel {
 
 
 public extension LoggerService where Self == SentryLogger {
+    @inlinable
     static func sentry(options: Options) -> SentryLogger {
         .init(options: options)
     }

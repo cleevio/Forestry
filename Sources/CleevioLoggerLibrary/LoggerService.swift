@@ -9,10 +9,12 @@ public protocol LoggerService {
 }
 
 extension LoggerService {
+    @inlinable
     public func configureUserInfo(_ dictionary: [LogUserInfoKey : String]) {
         
     }
     
+    @inlinable
     public func removeUserInfo(_ keys: [LogUserInfoKey]) {
         
     }

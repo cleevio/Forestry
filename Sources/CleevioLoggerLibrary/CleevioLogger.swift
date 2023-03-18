@@ -8,8 +8,9 @@ public struct CleevioLogger {
         self.loggerActor = .init(services: services)
     }
     
+    @inlinable
     public init(service: LoggerService) {
-        self.loggerActor = .init(services: [service])
+        self.init(services: [service])
     }
     
     // MARK: - Logging levels
@@ -115,11 +116,13 @@ private extension CleevioLogger {
 // MARK: - Deprecated
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension CleevioLogger {
+    @inlinable
     @available(*, deprecated, message: "Use updateUserInfo() instead")
     public func setUserInfo(_ dictionary: [LogUserInfoKey: String]) {
         updateUserInfo(for: dictionary)
     }
 
+    @inlinable
     @available(*, deprecated, message: "Use `removeUserInfo()` instead")
     public func removeValues(for keys: [LogUserInfoKey]) {
         removeUserInfo(for: keys)
