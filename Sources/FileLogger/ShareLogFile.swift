@@ -5,7 +5,7 @@
 //  Created by Lukáš Valenta on 30.12.2022.
 //
 
-#if os(iOS)
+#if canImport(UIKit)
 import UIKit
 
 public extension FileLogger {

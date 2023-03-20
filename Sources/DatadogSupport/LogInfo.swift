@@ -11,6 +11,8 @@ import CleevioLoggerLibrary
 #if canImport(Datadog)
 import Datadog
 
+typealias LogInfo = CleevioLoggerLibrary.LogInfo
+
 extension LogInfo {
     var datadogAttributes: [AttributeKey: AttributeValue] {
         [

@@ -27,7 +27,7 @@ dependencies: [
 
 ## Usage/Examples
 
-Core of library is `CleevioLogger` struct. During initialization you're required to provide 1 or more logging services to log to. 
+Core of library is `CleevioLogger` struct. During initialization you provide logging services to log to
 
 Common usage is as follows: 
 ```swift
@@ -44,6 +44,10 @@ public var Log = CleevioLogger(service: .console)
 public var Log2 = CleevioLogger(services: [.console, .datadog(clientToken: "", environment: "", serviceName: "")])
 ```
 
+## TODO
+
+– Implement Thread support in log() function if possible
+– Implement handling UserInfo in SwiftyBeaverLogger
 
 ## License
 

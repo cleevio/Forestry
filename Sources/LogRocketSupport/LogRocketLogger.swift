@@ -14,6 +14,7 @@ public struct LogRocketLogger: LoggerService {
         LogRocket.SDK.initialize(configuration: config)
     }
 
+    @inlinable
     public func log(info: LogInfo) {
         switch info.level {
         case .verbose, .debug:

@@ -1,3 +1,5 @@
+/// A level of log that determines to which services should the message be logged to
+/// LogLevel also includes the icon that is used within a formatted message
 public enum LogLevel: Int, Comparable {
     case verbose
     case debug
