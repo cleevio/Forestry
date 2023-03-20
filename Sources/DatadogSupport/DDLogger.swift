@@ -1,5 +1,7 @@
 import Foundation
 import CleevioLoggerLibrary
+
+#if canImport(Datadog)
 import Datadog
 
 /// Sends all logs to the Datadog.
@@ -98,3 +100,4 @@ public extension LoggerService where Self == DDLogger {
         )
     }
 }
+#endif

@@ -7,6 +7,8 @@
 
 import Foundation
 import CleevioLoggerLibrary
+
+#if canImport(Datadog)
 import Datadog
 
 extension LogInfo {
@@ -24,3 +26,4 @@ enum DataDogAttributeKey: String {
     case line
     case function
 }
+#endif
