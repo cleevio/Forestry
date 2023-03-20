@@ -69,6 +69,7 @@ public struct SwiftyBeaverLogger: LoggerService {
 }
 
 public extension LoggerService where Self == SwiftyBeaverLogger {
+    @inlinable
     static func swiftyBeaver(cloudLogger: SBPlatformDestination) -> SwiftyBeaverLogger {
         .init(cloudLogger: cloudLogger)
     }

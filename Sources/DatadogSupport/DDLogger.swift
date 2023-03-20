@@ -84,6 +84,7 @@ public class DDLogger: LoggerService {
 }
 
 public extension LoggerService where Self == DDLogger {
+    @inlinable
     static func datadog(
         clientToken: String,
         environment: String,

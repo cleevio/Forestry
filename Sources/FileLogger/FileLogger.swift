@@ -151,6 +151,7 @@ public struct FileLogger: LoggerService {
 public extension LoggerService where Self == FileLogger {
     static var file: FileLogger { .init() }
 
+    @inlinable
     static func file(minimalLogLevel: LogLevel = .debug, configuration: FileLogger.Configuration = .init()) -> FileLogger {
         .init(minimalLogLevel: minimalLogLevel, configuration: configuration)
     }

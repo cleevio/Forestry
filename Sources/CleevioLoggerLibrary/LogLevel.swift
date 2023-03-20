@@ -5,6 +5,7 @@ public enum LogLevel: Int, Comparable {
     case warning
     case error
 
+    @inlinable
     public static func < (lhs: LogLevel, rhs: LogLevel) -> Bool {
         lhs.rawValue < rhs.rawValue
     }

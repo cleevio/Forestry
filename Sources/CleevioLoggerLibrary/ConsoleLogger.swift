@@ -9,6 +9,7 @@ public struct ConsoleLogger: LoggerService {
         self.dateFormatter = dateFormatter
     }
 
+    @inlinable
     public func log(info: LogInfo) {
         print("\(dateFormatter.string(from: info.date)) \(info.formattedMessage)")
     }
