@@ -35,7 +35,7 @@ let package = Package(
                 ]),
         .target(name: "LogRocketSupport",
                 dependencies: [
-                    .product(name: "LogRocket", package: "logrocket-ios-swift-package"),
+                    .product(name: "LogRocket", package: "logrocket-ios-swift-package", condition: .when(platforms: [.iOS, .macCatalyst])),
                     .target(name: "CleevioLoggerLibrary")
                 ]),
         .target(name: "SentrySupport",

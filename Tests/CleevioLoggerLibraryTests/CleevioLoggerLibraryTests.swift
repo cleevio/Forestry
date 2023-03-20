@@ -1,32 +1,6 @@
-//
-//  File.swift
-//  
-//
-//  Created by Lukáš Valenta on 18.03.2023.
-//
-
 import Foundation
 import CleevioLoggerLibrary
 import XCTest
-
-final class LoggerServiceMock: LoggerService {
-    var minimalLogLevel: LogLevel = .info
-    var logClosure: ((LogInfo) -> Void)?
-    var configureUserInfoClosure: (([LogUserInfoKey: String]) -> Void)?
-    var removeUserInfoClosure: (([LogUserInfoKey]) -> Void)?
-    
-    func log(info: LogInfo) {
-        logClosure?(info)
-    }
-    
-    func configureUserInfo(_ dictionary: [LogUserInfoKey: String]) {
-        configureUserInfoClosure?(dictionary)
-    }
-    
-    func removeUserInfo(_ keys: [LogUserInfoKey]) {
-        removeUserInfoClosure?(keys)
-    }
-}
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 final class MyLibraryTests: XCTestCase {
