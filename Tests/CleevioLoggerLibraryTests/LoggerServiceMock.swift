@@ -1,0 +1,21 @@
+import Foundation
+import CleevioLoggerLibrary
+
+final class LoggerServiceMock: LoggerService {
+    var minimalLogLevel: LogLevel = .info
+    var logClosure: ((LogInfo) -> Void)?
+    var configureUserInfoClosure: (([LogUserInfoKey: String]) -> Void)?
+    var removeUserInfoClosure: (([LogUserInfoKey]) -> Void)?
+    
+    func log(info: LogInfo) {
+        logClosure?(info)
+    }
+    
+    func configureUserInfo(_ dictionary: [LogUserInfoKey: String]) {
+        configureUserInfoClosure?(dictionary)
+    }
+    
+    func removeUserInfo(_ keys: [LogUserInfoKey]) {
+        removeUserInfoClosure?(keys)
+    }
+}

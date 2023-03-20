@@ -21,6 +21,7 @@ let package = Package(
     ],
     targets: [
         .target(name: "CleevioLoggerLibrary", dependencies: []),
+        .testTarget(name: "CleevioLoggerLibraryTests", dependencies: ["CleevioLoggerLibrary"]),
         .target(name: "FileLogger", dependencies: ["CleevioLoggerLibrary"]),
         .target(name: "DatadogSupport",
                 dependencies: [
@@ -34,7 +35,7 @@ let package = Package(
                 ]),
         .target(name: "LogRocketSupport",
                 dependencies: [
-                    .product(name: "LogRocket", package: "logrocket-ios-swift-package"),
+                    .product(name: "LogRocket", package: "logrocket-ios-swift-package", condition: .when(platforms: [.iOS, .macCatalyst])),
                     .target(name: "CleevioLoggerLibrary")
                 ]),
         .target(name: "SentrySupport",
