@@ -1,11 +1,15 @@
+//
+//  Copyright 2023 © Cleevio s.r.o. All rights reserved.
+//
+
 import Foundation
 
-/// Prints all logs to the Console.
+/// A logger that prints all logs to the Console.
 public struct ConsoleLogger: LoggerService {
     public var minimalLogLevel: LogLevel = .verbose
     public var dateFormatter: DateFormatter
 
-    public init(dateFormatter: DateFormatter = CleevioLoggerFormatter.baseDateFormatter) {
+    public init(dateFormatter: DateFormatter = ForestryLoggerFormatter.baseDateFormatter) {
         self.dateFormatter = dateFormatter
     }
 
@@ -26,5 +30,6 @@ public struct ConsoleLogger: LoggerService {
 }
 
 public extension LoggerService where Self == ConsoleLogger {
+    /// A logger that prints all logs to the Console.
     static var console: ConsoleLogger { .init() }
 }

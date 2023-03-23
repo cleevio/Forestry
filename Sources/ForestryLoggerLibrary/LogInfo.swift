@@ -1,6 +1,10 @@
+//
+//  Copyright 2023 © Cleevio s.r.o. All rights reserved.
+//
+
 import Foundation
 
-/// Detail info about log (unformatted)
+/// A representation of individual log
 public struct LogInfo {
     public var level: LogLevel
     public var line: Int

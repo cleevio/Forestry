@@ -1,5 +1,9 @@
+//
+//  Copyright 2023 © Cleevio s.r.o. All rights reserved.
+//
+
 import Foundation
-import CleevioLoggerLibrary
+import ForestryLoggerLibrary
 
 final class LoggerServiceMock: LoggerService {
     var minimalLogLevel: LogLevel = .info

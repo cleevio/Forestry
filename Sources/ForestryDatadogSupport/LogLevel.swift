@@ -1,8 +1,5 @@
 //
-//  File.swift
-//  
-//
-//  Created by Lukáš Valenta on 18.03.2023.
+//  Copyright 2023 © Cleevio s.r.o. All rights reserved.
 //
 
 import Foundation

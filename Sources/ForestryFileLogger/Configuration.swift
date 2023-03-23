@@ -1,12 +1,9 @@
 //
-//  File.swift
-//  
-//
-//  Created by Lukáš Valenta on 30.12.2022.
+//  Copyright 2023 © Cleevio s.r.o. All rights reserved.
 //
 
 import Foundation
-import CleevioLoggerLibrary
+import ForestryLoggerLibrary
 
 public extension FileLogger {
     struct Configuration {
@@ -16,7 +13,7 @@ public extension FileLogger {
             fileManager: FileManager = .default,
             logFileMaxSize: Int = 1 * 1_024 * 1_024,
             dropFirst: Int = 1_000,
-            dateFormatter: DateFormatter = CleevioLoggerFormatter.baseDateFormatter
+            dateFormatter: DateFormatter = ForestryLoggerFormatter.baseDateFormatter
         ) {
             self.logFileURL = logFileURL ?? fileManager.logFileURL()
             self.syncAfterEachWrite = syncAfterEachWrite

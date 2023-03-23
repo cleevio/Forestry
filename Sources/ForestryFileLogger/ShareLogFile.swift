@@ -1,14 +1,12 @@
 //
-//  ShareLogFile.swift
-//  
-//
-//  Created by Lukáš Valenta on 30.12.2022.
+//  Copyright 2023 © Cleevio s.r.o. All rights reserved.
 //
 
 #if canImport(UIKit)
 import UIKit
 
 public extension FileLogger {
+    /// Presents UIActivityViewController on UIViewController with the fileToShare.
     func shareLogFile(on viewController: UIViewController) {
         guard let file = configuration.logFileURL else { return }
         let fileToShare: [Any] = [file]

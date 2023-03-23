@@ -1,16 +1,20 @@
+//
+//  Copyright 2023 © Cleevio s.r.o. All rights reserved.
+//
+
 import Foundation
-import CleevioLoggerLibrary
+import ForestryLoggerLibrary
 
 #if canImport(Datadog)
 import Datadog
 
-/// Sends all logs to the Datadog.
-public class DDLogger: LoggerService {
+/// A logger that sends all logs to the Datadog.
+public class DatadogLogger: LoggerService {
 
     private let clientToken: String
     private let logger: Logger
     private var userInfo: [AttributeKey: String] = [:]
-    public var minimalLogLevel: CleevioLoggerLibrary.LogLevel = .verbose
+    public var minimalLogLevel: ForestryLoggerLibrary.LogLevel = .verbose
 
     public init(
         clientToken: String,
@@ -39,7 +43,7 @@ public class DDLogger: LoggerService {
             .build()
     }
 
-    public func log(info: CleevioLoggerLibrary.LogInfo) {
+    public func log(info: ForestryLoggerLibrary.LogInfo) {
         var attributes = info.datadogAttributes
         
         for (key, value) in userInfo {
@@ -72,7 +76,8 @@ public class DDLogger: LoggerService {
     }
 }
 
-public extension LoggerService where Self == DDLogger {
+public extension LoggerService where Self == DatadogLogger {
+    /// A logger that sends all logs to the Datadog.
     @inlinable
     static func datadog(
         clientToken: String,

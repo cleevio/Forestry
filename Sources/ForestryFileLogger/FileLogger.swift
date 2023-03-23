@@ -1,16 +1,15 @@
 //
-//  FileLogger.swift
-//  
-//
-//  Created by Lukáš Valenta on 30.12.2022.
+//  Copyright 2023 © Cleevio s.r.o. All rights reserved.
 //
 
 import Foundation
-import CleevioLoggerLibrary
+import ForestryLoggerLibrary
 
+/// A logger that saves the logs to file
+/// Not suitable for production as it is not performant
 public struct FileLogger: LoggerService {
     
-    public var minimalLogLevel: CleevioLoggerLibrary.LogLevel
+    public var minimalLogLevel: ForestryLoggerLibrary.LogLevel
     public var configuration: Configuration
 
     private var fileManager: FileManager {
@@ -22,7 +21,7 @@ public struct FileLogger: LoggerService {
         self.configuration = configuration
     }
         
-    public func log(info: CleevioLoggerLibrary.LogInfo) {
+    public func log(info: ForestryLoggerLibrary.LogInfo) {
         if !saveToValidatedFile(message: "\(configuration.dateFormatter.string(from: info.date)) \(info.formattedMessage)") {
             print("FileLogger: Unable to write to file")
         }

@@ -1,11 +1,15 @@
+//
+//  Copyright 2023 © Cleevio s.r.o. All rights reserved.
+//
+
 import Foundation
-import CleevioLoggerLibrary
+import ForestryLoggerLibrary
 import XCTest
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 final class MyLibraryTests: XCTestCase {
     var mockLoggerService: LoggerServiceMock!
-    var logger: CleevioLogger!
+    var logger: ForestryLogger!
 
     override func setUp() {
         super.setUp()

@@ -1,17 +1,14 @@
 //
-//  LogInfo+.swift
-//  
-//
-//  Created by Lukáš Valenta on 10.01.2023.
+//  Copyright 2023 © Cleevio s.r.o. All rights reserved.
 //
 
 import Foundation
-import CleevioLoggerLibrary
+import ForestryLoggerLibrary
 
 #if canImport(Datadog)
 import Datadog
 
-typealias LogInfo = CleevioLoggerLibrary.LogInfo
+typealias LogInfo = ForestryLoggerLibrary.LogInfo
 
 extension LogInfo {
     var datadogAttributes: [AttributeKey: AttributeValue] {

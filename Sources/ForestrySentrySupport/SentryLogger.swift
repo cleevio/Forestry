@@ -1,11 +1,15 @@
+//
+//  Copyright 2023 © Cleevio s.r.o. All rights reserved.
+//
+
 import Foundation
-import CleevioLoggerLibrary
+import ForestryLoggerLibrary
 import Sentry
 
-/// Sends error logs to the Sentry
+/// A logger that sends error logs to the Sentry
 public struct SentryLogger: LoggerService {
 
-    public var minimalLogLevel: CleevioLoggerLibrary.LogLevel = .error
+    public var minimalLogLevel: ForestryLoggerLibrary.LogLevel = .error
 
     public init(options: Options) {
         SentrySDK.start(options: options)
@@ -45,6 +49,7 @@ private extension LogLevel {
 
 
 public extension LoggerService where Self == SentryLogger {
+    /// A logger that sends error logs to the Sentry
     @inlinable
     static func sentry(options: Options) -> SentryLogger {
         .init(options: options)
