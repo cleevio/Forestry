@@ -1,3 +1,8 @@
+//
+//  Copyright 2023 © Cleevio s.r.o. All rights reserved.
+//
+
+
 /// A level of log that determines to which services should the message be logged to
 /// LogLevel also includes the icon that is used within a formatted message
 public enum LogLevel: Int, Comparable {

@@ -1,3 +1,7 @@
+//
+//  Copyright 2023 © Cleevio s.r.o. All rights reserved.
+//
+
 import Foundation
 import ForestryLoggerLibrary
 
@@ -5,7 +9,7 @@ import ForestryLoggerLibrary
 import Datadog
 
 /// A logger that sends all logs to the Datadog.
-public class DDLogger: LoggerService {
+public class DatadogLogger: LoggerService {
 
     private let clientToken: String
     private let logger: Logger
@@ -72,7 +76,7 @@ public class DDLogger: LoggerService {
     }
 }
 
-public extension LoggerService where Self == DDLogger {
+public extension LoggerService where Self == DatadogLogger {
     /// A logger that sends all logs to the Datadog.
     @inlinable
     static func datadog(

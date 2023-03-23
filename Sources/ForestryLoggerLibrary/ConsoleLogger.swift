@@ -1,3 +1,7 @@
+//
+//  Copyright 2023 © Cleevio s.r.o. All rights reserved.
+//
+
 import Foundation
 
 /// A logger that prints all logs to the Console.

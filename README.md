@@ -1,7 +1,7 @@
 
 # Forestry: A Swift iOS Logger
 
-We had once a dream to have a log in our projects where we can set logging services  based on our requirements (e.g. by using different logger based on a scheme, as well as being able to easily switch to other logging service without any code breaking changes). We are excited to introduce you Forestry.
+Our team envisioned a versatile logging framework for iOS projects that could cater to specific logging needs with ease. We aimed to facilitate switching between logging services without causing any disruptive changes to the existing codebase. Today, we proudly present to you Forestry - an open-source logging library designed to meet these objectives.
 
 ## Features
 
@@ -16,13 +16,13 @@ We had once a dream to have a log in our projects where we can set logging servi
 ### Swift Package Manager
 Swift Package Manager is a tool for managing the distribution of Swift code. It’s integrated with the Swift build system to automate the process of downloading, compiling, and linking dependencies.
 
-Xcode 11+ is required to build Cleevio iOS Logger using Swift Package Manager.
+Xcode 11+ is required to build Forestry iOS Logger using Swift Package Manager.
 
-To integrate Cleevio iOS Logger into your Xcode project using Swift Package Manager, add it to the dependencies value of your Package.swift:
+To integrate Forestry iOS Logger into your Xcode project using Swift Package Manager, add it to the dependencies value of your Package.swift:
 
 ```
 dependencies: [
-    .package(url: "https://gitlab.cleevio.cz/cleevio-dev-ios/ForestryLogger-ios", .upToNextMajor(from: "1.0.0"))
+    .package(url: "https://github.com/cleevio/Forestry", .upToNextMajor(from: "3.0.0"))
 ]
 ```
 
@@ -62,6 +62,6 @@ You can always expend the functionality by creating your own logging service via
 
 ## Developed by
 
-The good guys from Cleevio.
+The good guys from [Cleevio](https://cleevio.com).
 
 ![Cleevio logo](https://pbs.twimg.com/profile_images/1531970166946422790/e0DjgYzt_400x400.png)

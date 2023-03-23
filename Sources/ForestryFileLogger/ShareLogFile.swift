@@ -1,3 +1,7 @@
+//
+//  Copyright 2023 © Cleevio s.r.o. All rights reserved.
+//
+
 #if canImport(UIKit)
 import UIKit
 

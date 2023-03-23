@@ -1,3 +1,7 @@
+//
+//  Copyright 2023 © Cleevio s.r.o. All rights reserved.
+//
+
 import Foundation
 
 /// Keys to set tags or parameters in services (or to be used during logging in these services)

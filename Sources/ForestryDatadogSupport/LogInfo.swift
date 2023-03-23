@@ -1,8 +1,5 @@
 //
-//  LogInfo+.swift
-//  
-//
-//  Created by Lukáš Valenta on 10.01.2023.
+//  Copyright 2023 © Cleevio s.r.o. All rights reserved.
 //
 
 import Foundation
