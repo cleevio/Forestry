@@ -1,14 +1,14 @@
 import Foundation
 import SwiftyBeaver
-import CleevioLoggerLibrary
+import ForestryLoggerLibrary
 
-/// Sends all logs to the Swift Beaver cloud.
+/// A logger that sends all logs to the Swift Beaver cloud.
 public struct SwiftyBeaverLogger: LoggerService {
 
     private let logger = SwiftyBeaver.self
     private let cloudLogger: SBPlatformDestination
 
-    public var minimalLogLevel: CleevioLoggerLibrary.LogLevel = .verbose
+    public var minimalLogLevel: ForestryLoggerLibrary.LogLevel = .verbose
 
     public init(cloudLogger: SBPlatformDestination) {
         self.cloudLogger = cloudLogger
@@ -47,6 +47,7 @@ extension LogLevel {
 }
 
 public extension LoggerService where Self == SwiftyBeaverLogger {
+    /// A logger that sends all logs to the Swift Beaver cloud.
     @inlinable
     static func swiftyBeaver(cloudLogger: SBPlatformDestination) -> SwiftyBeaverLogger {
         .init(cloudLogger: cloudLogger)

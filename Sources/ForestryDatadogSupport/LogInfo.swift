@@ -6,12 +6,12 @@
 //
 
 import Foundation
-import CleevioLoggerLibrary
+import ForestryLoggerLibrary
 
 #if canImport(Datadog)
 import Datadog
 
-typealias LogInfo = CleevioLoggerLibrary.LogInfo
+typealias LogInfo = ForestryLoggerLibrary.LogInfo
 
 extension LogInfo {
     var datadogAttributes: [AttributeKey: AttributeValue] {

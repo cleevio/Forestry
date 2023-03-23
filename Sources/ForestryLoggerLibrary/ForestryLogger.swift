@@ -3,7 +3,7 @@ import Foundation
 /// A logger that stores its services in a an actor from which all logging is executed asynchronously.
 /// If no service is provided (e.g. for production), the logging library should be free to use without any performance detriments (with only one if check)
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public struct CleevioLogger {
+public struct ForestryLogger {
     private let loggerActor: LoggerActor?
     
     /// Can be called with empty array. In such situation, the logger will be efficient to use without resolving the messages
@@ -83,13 +83,14 @@ public struct CleevioLogger {
         removeUserInfo(for: [key])
     }
     
+    /// Asynchronously returns userInfo stored in logger
     public func currentUserInfo() async -> [LogUserInfoKey: String] {
         await loggerActor?.userInfo ?? [:]
     }
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-private extension CleevioLogger {
+private extension ForestryLogger {
     final actor LoggerActor {
         private let services: [LoggerService]
         var userInfo: [LogUserInfoKey: String] = [:]
@@ -127,7 +128,7 @@ private extension CleevioLogger {
 
 // MARK: - Deprecated
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-extension CleevioLogger {
+extension ForestryLogger {
     @inlinable
     @available(*, deprecated, message: "Use updateUserInfo() instead")
     public func setUserInfo(_ dictionary: [LogUserInfoKey: String]) {

@@ -1,6 +1,6 @@
 import Foundation
 
-public enum CleevioLoggerFormatter {
+public enum ForestryLoggerFormatter {
     public static let baseDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm:ss.SSS"

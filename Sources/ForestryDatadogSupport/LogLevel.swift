@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by Lukáš Valenta on 18.03.2023.
-//
-
 import Foundation
 import Datadog
 

@@ -1,5 +1,5 @@
 import Foundation
-import CleevioLoggerLibrary
+import ForestryLoggerLibrary
 
 #if canImport(LogRocket)
 import LogRocket
@@ -7,7 +7,7 @@ import LogRocket
 /// Sends all logs to the Log Rocket cloud.
 public struct LogRocketLogger: LoggerService {
 
-    public var minimalLogLevel: CleevioLoggerLibrary.LogLevel = .debug
+    public var minimalLogLevel: ForestryLoggerLibrary.LogLevel = .debug
 
     public init(appID: String) {
         let config = Configuration(appID: appID)

@@ -1,14 +1,8 @@
-//
-//  ShareLogFile.swift
-//  
-//
-//  Created by Lukáš Valenta on 30.12.2022.
-//
-
 #if canImport(UIKit)
 import UIKit
 
 public extension FileLogger {
+    /// Presents UIActivityViewController on UIViewController with the fileToShare.
     func shareLogFile(on viewController: UIViewController) {
         guard let file = configuration.logFileURL else { return }
         let fileToShare: [Any] = [file]

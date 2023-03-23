@@ -4,14 +4,14 @@
 import PackageDescription
 
 let package = Package(
-    name: "CleevioLoggerLibrary",
+    name: "ForestryLoggerLibrary",
     products: [
-        .library(name: "CleevioLoggerLibrary", targets: ["CleevioLoggerLibrary"]),
-        .library(name: "DatadogSupport", targets: ["DatadogSupport"]),
-        .library(name: "FileLogger", targets: ["FileLogger"]),
-        .library(name: "SwiftyBeaverSupport", targets: ["SwiftyBeaverSupport"]),
-        .library(name: "LogRocketSupport", targets: ["LogRocketSupport"]),
-        .library(name: "SentrySupport", targets: ["SentrySupport"]),
+        .library(name: "ForestryLoggerLibrary", targets: ["ForestryLoggerLibrary"]),
+        .library(name: "ForestryDatadogSupport", targets: ["ForestryDatadogSupport"]),
+        .library(name: "ForestryFileLogger", targets: ["ForestryFileLogger"]),
+        .library(name: "ForestrySwiftyBeaverSupport", targets: ["ForestrySwiftyBeaverSupport"]),
+        .library(name: "ForestryLogRocketSupport", targets: ["ForestryLogRocketSupport"]),
+        .library(name: "ForestrySentrySupport", targets: ["ForestrySentrySupport"]),
     ],
     dependencies: [
         .package(url: "https://github.com/DataDog/dd-sdk-ios", from: .init(1, 15, 0)),
@@ -20,28 +20,28 @@ let package = Package(
         .package(url: "https://github.com/getsentry/sentry-cocoa.git", from: .init(8, 3, 0))
     ],
     targets: [
-        .target(name: "CleevioLoggerLibrary", dependencies: []),
-        .testTarget(name: "CleevioLoggerLibraryTests", dependencies: ["CleevioLoggerLibrary"]),
-        .target(name: "FileLogger", dependencies: ["CleevioLoggerLibrary"]),
-        .target(name: "DatadogSupport",
+        .target(name: "ForestryLoggerLibrary", dependencies: []),
+        .testTarget(name: "ForestryLoggerLibraryTests", dependencies: ["ForestryLoggerLibrary"]),
+        .target(name: "ForestryFileLogger", dependencies: ["ForestryLoggerLibrary"]),
+        .target(name: "ForestryDatadogSupport",
                 dependencies: [
                     .product(name: "Datadog", package: "dd-sdk-ios", condition: .when(platforms: [.iOS, .macCatalyst])),
-                    .target(name: "CleevioLoggerLibrary")
+                    .target(name: "ForestryLoggerLibrary")
                 ]),
-        .target(name: "SwiftyBeaverSupport",
+        .target(name: "ForestrySwiftyBeaverSupport",
                 dependencies: [
                     .product(name: "SwiftyBeaver", package: "SwiftyBeaver"),
-                    .target(name: "CleevioLoggerLibrary")
+                    .target(name: "ForestryLoggerLibrary")
                 ]),
-        .target(name: "LogRocketSupport",
+        .target(name: "ForestryLogRocketSupport",
                 dependencies: [
                     .product(name: "LogRocket", package: "logrocket-ios-swift-package", condition: .when(platforms: [.iOS, .macCatalyst])),
-                    .target(name: "CleevioLoggerLibrary")
+                    .target(name: "ForestryLoggerLibrary")
                 ]),
-        .target(name: "SentrySupport",
+        .target(name: "ForestrySentrySupport",
                 dependencies: [
                     .product(name: "Sentry", package: "sentry-cocoa"),
-                    .target(name: "CleevioLoggerLibrary")
+                    .target(name: "ForestryLoggerLibrary")
                 ])
     ]
 )

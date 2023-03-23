@@ -1,5 +1,5 @@
 import Foundation
-import CleevioLoggerLibrary
+import ForestryLoggerLibrary
 
 final class LoggerServiceMock: LoggerService {
     var minimalLogLevel: LogLevel = .info
