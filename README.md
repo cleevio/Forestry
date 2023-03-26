@@ -1,5 +1,5 @@
 
-# Forestry: An iOS Logger written in Swift
+# Forestry: A logger written in Swift
 
 Our team envisioned a versatile logging framework for iOS projects that could cater to specific logging needs with ease. We aimed to facilitate switching between logging services without causing any disruptive changes to the existing codebase. Today, we proudly present to you Forestry - an open-source logging library designed to meet these objectives.
 
