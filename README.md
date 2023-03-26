@@ -1,5 +1,5 @@
 
-# Forestry: A Swift iOS Logger
+# Forestry: An iOS Logger written in Swift
 
 Our team envisioned a versatile logging framework for iOS projects that could cater to specific logging needs with ease. We aimed to facilitate switching between logging services without causing any disruptive changes to the existing codebase. Today, we proudly present to you Forestry - an open-source logging library designed to meet these objectives.
 
@@ -35,16 +35,16 @@ Core of library is `ForestryLogger` struct. During initialization you provide lo
 Common usage is as follows: 
 ```swift
 #if DEBUG
-public let log = ForestryLogger(services: [ConsoleLogger()])
+let log = ForestryLogger(services: [ConsoleLogger()])
 #else
-public let log = ForestryLogger(services: [ConsoleLogger(), SwiftyBeaverLogger()])
+let log = ForestryLogger(services: [ConsoleLogger(), SwiftyBeaverLogger()])
 #endif
 ```
 
 It is also possible to instantiate services with convenience functions:
 ```swift
-public var log = ForestryLogger(service: .console)
-public var log2 = ForestryLogger(services: [.console, .datadog(clientToken: "", environment: "", serviceName: "")])
+let log = ForestryLogger(service: .console)
+let log2 = ForestryLogger(services: [.console, .datadog(clientToken: "", environment: "", serviceName: "")])
 ```
 
 You can always expend the functionality by creating your own logging service via conforming to the `LoggerService` protocol.
