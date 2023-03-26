@@ -14,10 +14,10 @@ let package = Package(
         .library(name: "ForestrySentrySupport", targets: ["ForestrySentrySupport"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/DataDog/dd-sdk-ios", from: .init(1, 15, 0)),
-        .package(url: "https://github.com/SwiftyBeaver/SwiftyBeaver", from: .init(1, 9, 6)),
-        .package(url: "https://github.com/LogRocket/logrocket-ios-swift-package", from: .init(1, 12, 0)),
-        .package(url: "https://github.com/getsentry/sentry-cocoa.git", from: .init(8, 3, 0))
+        .package(url: "https://github.com/DataDog/dd-sdk-ios", .upToNextMajor(from: .init(1, 16, 0))),
+        .package(url: "https://github.com/SwiftyBeaver/SwiftyBeaver", .upToNextMajor(from: .init(1, 9, 6))),
+        .package(url: "https://github.com/LogRocket/logrocket-ios-swift-package", .upToNextMajor(from: .init(1, 12, 0))),
+        .package(url: "https://github.com/getsentry/sentry-cocoa.git", .upToNextMajor(from: .init(8, 3, 0)))
     ],
     targets: [
         .target(name: "ForestryLoggerLibrary", dependencies: []),

@@ -10,7 +10,7 @@ import Foundation
 public struct ForestryLogger {
     private let loggerActor: LoggerActor?
     
-    /// Can be called with empty array. In such situation, the logger will be efficient to use without resolving the messages
+    /// Can be called with empty array. In such situation, the logger will not perform any activity
     public init(services: [LoggerService]) {
         self.loggerActor = .init(services: services)
     }

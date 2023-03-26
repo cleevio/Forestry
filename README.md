@@ -8,8 +8,8 @@ Our team envisioned a versatile logging framework for iOS projects that could ca
 - Lightweight logging solution without external dependencies
 - Easily extensible
 - Supports major external logging services out of the box
-– Written with Swift
-– The public API of ForestryLoggerLibrary has full test coverage. Integration of services has so far been tested only manually when integrated into our projects.
+- Written with Swift
+- The public API of ForestryLoggerLibrary has full test coverage. Integration of services has so far been tested only manually when integrated into our projects.
 
 ## Installation
 
@@ -51,10 +51,10 @@ You can always expend the functionality by creating your own logging service via
 
 ## TODO
 
-– Implement Thread support in log() function if possible
-– Implement handling UserInfo in SwiftyBeaverLogger
-– Implement privacy support
-– Implement support for other platforms
+- Implement Thread support in log() function if possible
+- Implement handling UserInfo in SwiftyBeaverLogger
+- Implement privacy support
+- Implement support for other platforms
 
 ## License
 

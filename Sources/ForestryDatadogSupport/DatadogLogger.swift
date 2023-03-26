@@ -85,7 +85,7 @@ public extension LoggerService where Self == DatadogLogger {
         serviceName: String,
         trackingConsent: TrackingConsent = .granted,
         uploadFrequency: Datadog.Configuration.UploadFrequency = .average
-    ) -> DDLogger {
+    ) -> DatadogLogger {
         .init(
                 clientToken: clientToken,
                 environment: environment,
