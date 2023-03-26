@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/LogRocket/logrocket-ios-swift-package",
       "state" : {
-        "revision" : "2bb7a91af07c67aa380028834a110fc9dccd7dbc",
-        "version" : "1.12.1"
+        "revision" : "9eab7d0c9d65cd378f4d822fcf0704d21e23b6ff",
+        "version" : "1.12.3"
       }
     },
     {
@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/getsentry/sentry-cocoa.git",
       "state" : {
-        "revision" : "2e7899aff930ed3b8d81be1909492f7684bbd481",
-        "version" : "8.3.1"
+        "revision" : "ac224c437a3070ffe34460137ac8761eddaf2852",
+        "version" : "8.3.3"
       }
     },
     {
