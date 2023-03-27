@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/DataDog/dd-sdk-ios",
       "state" : {
-        "revision" : "6418c623b0a91b9ac7a9d91c1c61ccc0aa2bf668",
-        "version" : "1.16.0"
+        "revision" : "d21815db41fe9a73e026ace09e6f6736f36f66e1",
+        "version" : "1.17.0"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/LogRocket/logrocket-ios-swift-package",
       "state" : {
-        "revision" : "2bb7a91af07c67aa380028834a110fc9dccd7dbc",
-        "version" : "1.12.1"
+        "revision" : "9eab7d0c9d65cd378f4d822fcf0704d21e23b6ff",
+        "version" : "1.12.3"
       }
     },
     {
@@ -32,8 +32,26 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/getsentry/sentry-cocoa.git",
       "state" : {
-        "revision" : "2e7899aff930ed3b8d81be1909492f7684bbd481",
-        "version" : "8.3.1"
+        "revision" : "ac224c437a3070ffe34460137ac8761eddaf2852",
+        "version" : "8.3.3"
+      }
+    },
+    {
+      "identity" : "swift-docc-plugin",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-docc-plugin",
+      "state" : {
+        "branch" : "main",
+        "revision" : "106fd09cc69dfa610cb12770f6aee59671aed109"
+      }
+    },
+    {
+      "identity" : "swift-docc-symbolkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-docc-symbolkit",
+      "state" : {
+        "revision" : "b45d1f2ed151d057b54504d653e0da5552844e34",
+        "version" : "1.0.0"
       }
     },
     {

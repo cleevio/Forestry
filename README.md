@@ -1,5 +1,5 @@
 
-# Forestry: A Swift iOS Logger
+# Forestry: A logger written in Swift
 
 Our team envisioned a versatile logging framework for iOS projects that could cater to specific logging needs with ease. We aimed to facilitate switching between logging services without causing any disruptive changes to the existing codebase. Today, we proudly present to you Forestry - an open-source logging library designed to meet these objectives.
 
@@ -8,8 +8,8 @@ Our team envisioned a versatile logging framework for iOS projects that could ca
 - Lightweight logging solution without external dependencies
 - Easily extensible
 - Supports major external logging services out of the box
-– Written with Swift
-– The public API of ForestryLoggerLibrary has full test coverage. Integration of services has so far been tested only manually when integrated into our projects.
+- Written with Swift
+- The public API of ForestryLoggerLibrary has full test coverage. Integration of services has so far been tested only manually when integrated into our projects.
 
 ## Installation
 
@@ -35,26 +35,26 @@ Core of library is `ForestryLogger` struct. During initialization you provide lo
 Common usage is as follows: 
 ```swift
 #if DEBUG
-public let log = ForestryLogger(services: [ConsoleLogger()])
+let log = ForestryLogger(services: [ConsoleLogger()])
 #else
-public let log = ForestryLogger(services: [ConsoleLogger(), SwiftyBeaverLogger()])
+let log = ForestryLogger(services: [ConsoleLogger(), SwiftyBeaverLogger()])
 #endif
 ```
 
 It is also possible to instantiate services with convenience functions:
 ```swift
-public var log = ForestryLogger(service: .console)
-public var log2 = ForestryLogger(services: [.console, .datadog(clientToken: "", environment: "", serviceName: "")])
+let log = ForestryLogger(service: .console)
+let log2 = ForestryLogger(services: [.console, .datadog(clientToken: "", environment: "", serviceName: "")])
 ```
 
 You can always expend the functionality by creating your own logging service via conforming to the `LoggerService` protocol.
 
 ## TODO
 
-– Implement Thread support in log() function if possible
-– Implement handling UserInfo in SwiftyBeaverLogger
-– Implement privacy support
-– Implement support for other platforms
+- Implement Thread support in log() function if possible
+- Implement handling UserInfo in SwiftyBeaverLogger
+- Implement privacy support
+- Implement support for other platforms
 
 ## License
 
