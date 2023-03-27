@@ -129,35 +129,3 @@ private extension ForestryLogger {
         }
     }
 }
-
-// MARK: - Deprecated
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-extension ForestryLogger {
-    @inlinable
-    @available(*, deprecated, message: "Use updateUserInfo() instead")
-    public func setUserInfo(_ dictionary: [LogUserInfoKey: String]) {
-        updateUserInfo(for: dictionary)
-    }
-
-    @inlinable
-    @available(*, deprecated, message: "Use `removeUserInfo()` instead")
-    public func removeValues(for keys: [LogUserInfoKey]) {
-        removeUserInfo(for: keys)
-    }
-
-    @inlinable
-    @available(*, deprecated, message: "Use setUserInfo() instead")
-    public func setUserInfo(username: String?) {
-        guard let username else { return removeValue(for: .username)}
-        let dictionary: [LogUserInfoKey: String] = [
-            .username: username
-        ]
-        setUserInfo(dictionary)
-    }
-
-    @inlinable
-    @available(*, deprecated, message: "Use removeUserInfo() instead")
-    public func removeValue(for key: LogUserInfoKey) {
-        removeUserInfo(for: [key])
-    }
-}
