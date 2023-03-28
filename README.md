@@ -1,5 +1,5 @@
 
-# Forestry: An iOS Logging Framework
+# Forestry: A Swift Logging Framework
 
 Our team envisioned a versatile logging framework for iOS projects that could easily cater to specific logging needs. We aimed to facilitate seamless switching between logging services without disrupting the existing codebase. Today, we're proud to present Forestry - an open-source logging library designed to meet these objectives.
 
@@ -53,7 +53,7 @@ Forestry currently includes integrations to following third party logging servic
 
 - DataDog
 - Sentry (error logging only)
-- SwiftBeaver Cloud
+- SwiftyBeaver Cloud
 - LogRocket
 
 ## TODO
