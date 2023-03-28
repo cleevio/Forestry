@@ -56,7 +56,7 @@ let platformSpecificTargets: [Target] = []
 // MARK: Package
 
 let package = Package(
-    name: "ForestryLoggerLibrary",
+    name: "ForestryLogger",
     products: products + platformSpecificProducts,
     dependencies: [
         .package(url: "https://github.com/DataDog/dd-sdk-ios", .upToNextMajor(from: .init(1, 16, 0))),
