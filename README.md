@@ -1,15 +1,15 @@
 
-# Forestry: A logger written in Swift
+# Forestry: A Swift Logging Framework
 
-Our team envisioned a versatile logging framework for iOS projects that could cater to specific logging needs with ease. We aimed to facilitate switching between logging services without causing any disruptive changes to the existing codebase. Today, we proudly present to you Forestry - an open-source logging library designed to meet these objectives.
+Our team envisioned a versatile logging framework for iOS projects that could easily cater to specific logging needs. We aimed to facilitate seamless switching between logging services without disrupting the existing codebase. Today, we're proud to present Forestry - an open-source logging library designed to meet these objectives.
 
-## Features
+# Features
 
-- Lightweight logging solution without external dependencies
-- Easily extensible
-- Supports major external logging services out of the box
-- Written with Swift
-- The public API of ForestryLoggerLibrary has full test coverage. Integration of services has so far been tested only manually when integrated into our projects.
+- One logger to rule them all: whether you're only interested in logging to the console or need to log billions of records in production, we've got you covered!
+- Easy extensibility
+- Supports major external logging services & local file logging out of the box
+- Written in Swift
+- The public API of ForestryLoggerLibrary is fully covered by tests.
 
 ## Installation
 
@@ -25,8 +25,6 @@ dependencies: [
     .package(url: "https://github.com/cleevio/Forestry", .upToNextMajor(from: "3.0.0"))
 ]
 ```
-
-
 
 ## Usage/Examples
 
@@ -47,7 +45,16 @@ let log = ForestryLogger(service: .console)
 let log2 = ForestryLogger(services: [.console, .datadog(clientToken: "", environment: "", serviceName: "")])
 ```
 
-You can always expend the functionality by creating your own logging service via conforming to the `LoggerService` protocol.
+You can always expend the functionality by creating your own logging service by conforming to the `LoggerService` protocol.
+
+## Integrations
+
+Forestry currently includes integrations to following third party logging services. 
+
+- DataDog
+- Sentry (error logging only)
+- SwiftyBeaver Cloud
+- LogRocket
 
 ## TODO
 
@@ -58,10 +65,10 @@ You can always expend the functionality by creating your own logging service via
 
 ## License
 
-[GNU GPL-V3](https://choosealicense.com/licenses/gpl-3.0/#)
+[MIT](LICENSE.md)
 
 ## Developed by
 
 The good guys from [Cleevio](https://cleevio.com).
 
-![Cleevio logo](https://pbs.twimg.com/profile_images/1531970166946422790/e0DjgYzt_400x400.png)
+![Cleevio logo](cleevioLogo.jpg)
