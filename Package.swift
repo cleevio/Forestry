@@ -22,7 +22,6 @@ let package = Package(
     ],
     targets: [
         .target(name: "ForestryLoggerLibrary", dependencies: []),
-        .testTarget(name: "ForestryLoggerLibraryTests", dependencies: ["ForestryLoggerLibrary"]),
         .target(name: "ForestryFileLogger", dependencies: ["ForestryLoggerLibrary"]),
         .target(name: "ForestrySwiftyBeaverSupport",
                 dependencies: [
@@ -43,6 +42,7 @@ let package = Package(
                 dependencies: [
                     .product(name: "Datadog", package: "dd-sdk-ios", condition: .when(platforms: [.iOS, .macCatalyst])),
                     .target(name: "ForestryLoggerLibrary")
-                ])
+                ]),
+        .testTarget(name: "ForestryLoggerLibraryTests", dependencies: ["ForestryLoggerLibrary"])
     ]
 )
