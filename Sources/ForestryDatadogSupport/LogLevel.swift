@@ -3,6 +3,7 @@
 //
 
 import Foundation
+#if canImport(Datadog)
 import Datadog
 
 // Extension cannot be made on LogLevel, as there is no way to reference Datadog.LogLevel
@@ -22,3 +23,4 @@ extension LogInfo {
         }
     }
 }
+#endif

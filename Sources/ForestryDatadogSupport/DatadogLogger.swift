@@ -95,4 +95,17 @@ public extension LoggerService where Self == DatadogLogger {
         )
     }
 }
+
+#else
+
+@available(*, unavailable, message: "DatadogLogger is not available for this platform")
+public class DatadogLogger: LoggerService {
+    public var minimalLogLevel: ForestryLoggerLibrary.LogLevel = .debug
+    
+    public func log(info: ForestryLoggerLibrary.LogInfo) {
+        
+    }
+    
+    
+}
 #endif

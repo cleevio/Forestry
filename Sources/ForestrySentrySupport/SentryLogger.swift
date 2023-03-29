@@ -8,11 +8,12 @@ import Sentry
 
 /// A logger that sends error logs to the Sentry
 public struct SentryLogger: LoggerService {
-
+    public typealias Options = Sentry.Options
+    
     public var minimalLogLevel: ForestryLoggerLibrary.LogLevel = .error
 
-    public init(options: Options) {
-        SentrySDK.start(options: options)
+    public init(options: @autoclosure () -> Options) {
+        SentrySDK.start(options: options())
     }
 
     public func log(info: LogInfo) {
@@ -51,7 +52,8 @@ private extension LogLevel {
 public extension LoggerService where Self == SentryLogger {
     /// A logger that sends error logs to the Sentry
     @inlinable
-    static func sentry(options: Options) -> SentryLogger {
-        .init(options: options)
+    static func sentry(options: @autoclosure () -> SentryLogger.Options) -> SentryLogger {
+        .init(options: options())
     }
+    
 }
