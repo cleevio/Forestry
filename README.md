@@ -45,7 +45,7 @@ let log = ForestryLogger(service: .console)
 let log2 = ForestryLogger(services: [.console, .datadog(clientToken: "", environment: "", serviceName: "")])
 ```
 
-You can always expend the functionality by creating your own logging service by conforming to the `LoggerService` protocol.
+You can always expend the functionality by creating your own logging service by conforming to the `LoggerService` protocol. [ForestryLoggerLibrary documentation](https://cleevio.github.io/Forestry/documentation/forestryloggerlibrary)
 
 ## Integrations
 

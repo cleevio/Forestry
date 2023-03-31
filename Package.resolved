@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/LogRocket/logrocket-ios-swift-package",
       "state" : {
-        "revision" : "9eab7d0c9d65cd378f4d822fcf0704d21e23b6ff",
-        "version" : "1.12.3"
+        "revision" : "9b1397e68cbf1fae6d8b26331ba069deab9c4c96",
+        "version" : "1.12.4"
       }
     },
     {
