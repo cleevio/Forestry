@@ -1,5 +1,5 @@
 <p align="center">
-<img src="logo.png" alt="Forestry" title="Forestry" width="512"/>
+<img src="assets/logo.png" alt="Forestry" title="Forestry" width="512"/>
 </p>
 
 <p align="center">
@@ -31,7 +31,7 @@ Xcode 11+ is required to build Forestry iOS Logger using Swift Package Manager.
 
 To integrate Forestry iOS Logger into your Xcode project using Swift Package Manager, add it to the dependencies value of your Package.swift:
 
-```
+```swift
 dependencies: [
     .package(url: "https://github.com/cleevio/Forestry", .upToNextMajor(from: "3.0.0"))
 ]
@@ -82,4 +82,4 @@ Forestry currently includes integrations to following third party logging servic
 
 The good guys from [Cleevio](https://cleevio.com).
 
-![Cleevio logo](cleevioLogo.jpg)
+![Cleevio logo](assets/cleevio.png)
