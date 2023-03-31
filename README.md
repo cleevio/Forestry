@@ -1,3 +1,14 @@
+<p align="center">
+<img src="logo.png" alt="Forestry" title="Forestry" width="512"/>
+</p>
+
+<p align="center">
+<a href="https://cleevio.github.io/Forestry/documentation/forestryloggerlibrary/"><img src="https://img.shields.io/badge/Swift-Doc-DE5C43.svg?style=flat"></a>
+<a href="https://swift.org/package-manager/"><img src="https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat"></a>
+<br />
+<a href="https://github.com/cleevio/Forestry/blob/main/LICENSE.md"><img src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
+<a href="https://cleevio.github.io/Forestry/documentation/forestryloggerlibrary/"><img src="https://img.shields.io/badge/platform-ios%20macos-lightgrey"></a>
+</p>
 
 # Forestry: A Swift Logging Framework
 
