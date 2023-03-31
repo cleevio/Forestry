@@ -1,5 +1,5 @@
 swift package \
-    --allow-writing-to-directory ./docs \
+    --allow-writing-to-directory .assets/docs \
     generate-documentation --target ForestryLoggerLibrary \
     --disable-indexing \
     --transform-for-static-hosting \

@@ -1,5 +1,5 @@
 <p align="center">
-<img src="logo.png" alt="Forestry" title="Forestry" width="512"/>
+<img src="assets/img/logo.png" alt="Forestry" title="Forestry" width="512"/>
 </p>
 
 <p align="center">
@@ -69,10 +69,10 @@ Forestry currently includes integrations to following third party logging servic
 
 ## TODO
 
-- Implement Thread support in log() function if possible
-- Implement handling UserInfo in SwiftyBeaverLogger
-- Implement privacy support
-- Implement support for other platforms
+- [ ] Implement Thread support in log() function if possible
+- [ ] Implement handling UserInfo in SwiftyBeaverLogger
+- [ ] Implement privacy support
+- [ ] Implement support for other platforms
 
 ## License
 
@@ -82,4 +82,4 @@ Forestry currently includes integrations to following third party logging servic
 
 The good guys from [Cleevio](https://cleevio.com).
 
-![Cleevio logo](cleevioLogo.jpg)
+![Cleevio logo](assets/img/cleevio.png)
