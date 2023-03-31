@@ -31,7 +31,7 @@ Xcode 11+ is required to build Forestry iOS Logger using Swift Package Manager.
 
 To integrate Forestry iOS Logger into your Xcode project using Swift Package Manager, add it to the dependencies value of your Package.swift:
 
-```
+```swift
 dependencies: [
     .package(url: "https://github.com/cleevio/Forestry", .upToNextMajor(from: "3.0.0"))
 ]
