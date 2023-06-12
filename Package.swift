@@ -11,7 +11,8 @@ let package = Package(
         .library(name: "ForestrySwiftyBeaverSupport", targets: ["ForestrySwiftyBeaverSupport"]),
         .library(name: "ForestryLogRocketSupport", targets: ["ForestryLogRocketSupport"]),
         .library(name: "ForestrySentrySupport", targets: ["ForestrySentrySupport"]),
-        .library(name: "ForestryDatadogSupport", targets: ["ForestryDatadogSupport"])
+        .library(name: "ForestryDatadogSupport", targets: ["ForestryDatadogSupport"]),
+        .library(name: "ForestryOSLogSupport", targets: ["ForestryOSLogSupport"])
     ],
     dependencies: [
         .package(url: "https://github.com/DataDog/dd-sdk-ios", .upToNextMajor(from: .init(1, 16, 0))),
@@ -36,6 +37,10 @@ let package = Package(
         .target(name: "ForestrySentrySupport",
                 dependencies: [
                     .product(name: "Sentry", package: "sentry-cocoa"),
+                    .target(name: "ForestryLoggerLibrary")
+                ]),
+        .target(name: "ForestryOSLogSupport",
+                dependencies: [
                     .target(name: "ForestryLoggerLibrary")
                 ]),
         .target(name: "ForestryDatadogSupport",
