@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/DataDog/dd-sdk-ios",
       "state" : {
-        "revision" : "9cfa5529451e479d5d40e9a1b1678534e2428e5a",
-        "version" : "1.20.0"
+        "revision" : "bf6043589c308099097e160dbc4d44c32804fc47",
+        "version" : "1.21.0"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/LogRocket/logrocket-ios-swift-package",
       "state" : {
-        "revision" : "b964459efe23d6d09a287adcdbe99c983cb2d135",
-        "version" : "1.16.6"
+        "revision" : "640a651ce33c8dadef8d0ccd4bae4cd80e676b5a",
+        "version" : "1.16.9"
       }
     },
     {
@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/getsentry/sentry-cocoa.git",
       "state" : {
-        "revision" : "9cf7d2e514af1600cc2b3c5592e2848c6c5a76d6",
-        "version" : "8.7.3"
+        "revision" : "d277532e1c8af813981ba01f591b15bbdd735615",
+        "version" : "8.8.0"
       }
     },
     {
