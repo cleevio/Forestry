@@ -6,7 +6,7 @@ import Foundation
 
 /// Keys to set tags or parameters in services (or to be used during logging in these services)
 /// Easily extendable by using a custom key.
-public enum LogUserInfoKey: Hashable {
+public enum LogUserInfoKey: Hashable, Sendable {
     case username
     case email
     case deviceID
@@ -50,7 +50,7 @@ extension LogUserInfoKey {
     /// The KeyType follows the naming from Datadog.
     /// Its use is logger per logger different, for example, for Sentry, both tags and parameters are set as tag()
     /// The type is not printed out in consoleLogger.
-    public enum KeyType: Hashable {
+    public enum KeyType: Hashable, Sendable {
         case tag
         case parameter
     }
