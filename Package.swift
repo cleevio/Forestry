@@ -3,8 +3,22 @@
 
 import PackageDescription
 
+let swiftSettings: [SwiftSetting] = [
+// Only for development checks
+//    SwiftSetting.unsafeFlags([
+//        "-Xfrontend", "-strict-concurrency=complete",
+//        "-Xfrontend", "-warn-concurrency",
+//        "-Xfrontend", "-enable-actor-data-race-checks",
+//    ])
+]
+
 let package = Package(
     name: "ForestryLogger",
+    platforms: [
+        .iOS(.v11),
+        .macOS(.v11),
+        .tvOS(.v11)
+    ],
     products: [
         .library(name: "ForestryLoggerLibrary", targets: ["ForestryLoggerLibrary"]),
         .library(name: "ForestryFileLogger", targets: ["ForestryFileLogger"]),
@@ -15,7 +29,7 @@ let package = Package(
         .library(name: "ForestryOSLogSupport", targets: ["ForestryOSLogSupport"])
     ],
     dependencies: [
-        .package(url: "https://github.com/DataDog/dd-sdk-ios", .upToNextMajor(from: .init(1, 16, 0))),
+        .package(url: "https://github.com/DataDog/dd-sdk-ios", .upToNextMajor(from: .init(2, 7, 1))),
         .package(url: "https://github.com/SwiftyBeaver/SwiftyBeaver", .upToNextMajor(from: .init(1, 9, 6))),
         .package(url: "https://github.com/LogRocket/logrocket-ios-swift-package", .upToNextMajor(from: .init(1, 12, 0))),
         .package(url: "https://github.com/getsentry/sentry-cocoa.git", .upToNextMajor(from: .init(8, 3, 0))),
@@ -28,7 +42,8 @@ let package = Package(
                 dependencies: [
                     .product(name: "SwiftyBeaver", package: "SwiftyBeaver"),
                     .target(name: "ForestryLoggerLibrary")
-                ]),
+                ],
+               swiftSettings: swiftSettings),
         .target(name: "ForestryLogRocketSupport",
                 dependencies: [
                     .product(name: "LogRocket", package: "logrocket-ios-swift-package", condition: .when(platforms: [.iOS, .macCatalyst])),
@@ -38,16 +53,22 @@ let package = Package(
                 dependencies: [
                     .product(name: "Sentry", package: "sentry-cocoa"),
                     .target(name: "ForestryLoggerLibrary")
-                ]),
+                ],
+                swiftSettings: swiftSettings),
         .target(name: "ForestryOSLogSupport",
                 dependencies: [
                     .target(name: "ForestryLoggerLibrary")
-                ]),
+                ],
+                swiftSettings: swiftSettings),
         .target(name: "ForestryDatadogSupport",
                 dependencies: [
-                    .product(name: "Datadog", package: "dd-sdk-ios", condition: .when(platforms: [.iOS, .macCatalyst])),
+                    .product(name: "DatadogCore", package: "dd-sdk-ios", condition: .when(platforms: [.iOS, .macCatalyst])),
+                    .product(name: "DatadogLogs", package: "dd-sdk-ios", condition: .when(platforms: [.iOS, .macCatalyst])),
                     .target(name: "ForestryLoggerLibrary")
-                ]),
-        .testTarget(name: "ForestryLoggerLibraryTests", dependencies: ["ForestryLoggerLibrary"])
+                ],
+                swiftSettings: swiftSettings),
+        .testTarget(name: "ForestryLoggerLibraryTests", 
+                    dependencies: ["ForestryLoggerLibrary"],
+                    swiftSettings: swiftSettings)
     ]
 )

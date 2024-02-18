@@ -5,14 +5,16 @@
 import Foundation
 import ForestryLoggerLibrary
 
-#if canImport(Datadog)
-import Datadog
+#if canImport(DatadogCore)
+import DatadogCore
+import DatadogInternal
+import DatadogLogs
 
 /// A logger that sends all logs to the Datadog.
 public class DatadogLogger: LoggerService {
 
     private let clientToken: String
-    private let logger: Logger
+    private let logger: any LoggerProtocol
     private var userInfo: [AttributeKey: String] = [:]
     public var minimalLogLevel: ForestryLoggerLibrary.LogLevel = .verbose
 
@@ -25,22 +27,18 @@ public class DatadogLogger: LoggerService {
     ) {
         self.clientToken = clientToken
 
-        Datadog.initialize(
-            appContext: .init(),
-            trackingConsent: trackingConsent,
-            configuration: Datadog.Configuration.builderUsing(
-                clientToken: clientToken,
-                environment: environment)
-            .set(uploadFrequency: uploadFrequency)
-            .build()
-        )
+        Datadog.initialize(with: .init(
+            clientToken: clientToken,
+            env: environment,
+            service: serviceName,
+            uploadFrequency: uploadFrequency
+        ), trackingConsent: trackingConsent)
 
-        logger = Logger.builder
-            .set(serviceName: serviceName)
-            .sendNetworkInfo(true)
-            .sendLogsToDatadog(true)
-            .printLogsToConsole(false)
-            .build()
+        logger = Logger.create(with: .init(
+            service: serviceName,
+            networkInfoEnabled: true,
+            consoleLogFormat: .none)
+        )
     }
 
     public func log(info: ForestryLoggerLibrary.LogInfo) {

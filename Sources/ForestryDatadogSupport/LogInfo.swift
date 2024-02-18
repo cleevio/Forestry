@@ -5,8 +5,9 @@
 import Foundation
 import ForestryLoggerLibrary
 
-#if canImport(Datadog)
-import Datadog
+#if canImport(DatadogCore)
+import DatadogCore
+import DatadogInternal
 
 typealias LogInfo = ForestryLoggerLibrary.LogInfo
 

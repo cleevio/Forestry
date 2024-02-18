@@ -3,8 +3,9 @@
 //
 
 import Foundation
-#if canImport(Datadog)
-import Datadog
+#if canImport(DatadogCore)
+import DatadogCore
+import DatadogLogs
 
 // Extension cannot be made on LogLevel, as there is no way to reference Datadog.LogLevel
 extension LogInfo {
