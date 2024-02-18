@@ -7,7 +7,7 @@ import Foundation
 /// A logger that stores its services in a an actor from which all logging is executed asynchronously.
 /// If no service is provided (e.g. for production), the logging library should be free to use without any performance detriments (with only one if check)
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public struct ForestryLogger {
+public struct ForestryLogger: Sendable {
     private let loggerActor: LoggerActor?
     
     /// Can be called with empty array. In such situation, the logger will not perform any activity
