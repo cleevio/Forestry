@@ -27,17 +27,24 @@ public class DatadogLogger: LoggerService {
     ) {
         self.clientToken = clientToken
 
-        Datadog.initialize(with: .init(
-            clientToken: clientToken,
-            env: environment,
-            service: serviceName,
-            uploadFrequency: uploadFrequency
-        ), trackingConsent: trackingConsent)
+        let core = Datadog.initialize(
+            with: .init(
+                clientToken: clientToken,
+                env: environment,
+                service: serviceName,
+                uploadFrequency: uploadFrequency
+            ),
+            trackingConsent: trackingConsent
+        )
 
-        logger = Logger.create(with: .init(
-            service: serviceName,
-            networkInfoEnabled: true,
-            consoleLogFormat: .none)
+        Logs.enable(in: core)
+        
+        logger = Logger.create(
+            with: .init(
+                service: serviceName,
+                networkInfoEnabled: true,
+                consoleLogFormat: .none),
+            in: core
         )
     }
 
