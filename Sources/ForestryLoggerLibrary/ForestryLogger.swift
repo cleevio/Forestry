@@ -22,7 +22,7 @@ public struct ForestryLogger: Sendable {
 
     /// Logs the message in services based on minimumLogLevel.
     /// The log may be executed from a different Thread than the one that called the function as the logging happens asynchronously.
-    public func log(_ message: @escaping () -> Any, level: LogLevel, file: String, function: String, line: Int) {
+    public func log(_ message: @escaping @Sendable () -> Any, level: LogLevel, file: String, function: String, line: Int) {
         guard let loggerActor else { return }
         Task.detached(priority: .utility) { [message] in
             await loggerActor.log(message, level: level, file: file, function: function, line: line)
@@ -32,27 +32,27 @@ public struct ForestryLogger: Sendable {
     // MARK: - Logging levels
     
     @inlinable
-    public func verbose(_ message: @escaping @autoclosure () -> Any, file: String = #file, function: String = #function, line: Int = #line) {
+    public func verbose(_ message: @escaping @Sendable @autoclosure () -> Any, file: String = #file, function: String = #function, line: Int = #line) {
         log(message, level: .verbose, file: file, function: function, line: line)
     }
     
     @inlinable
-    public func debug(_ message: @escaping @autoclosure () -> Any, file: String = #file, function: String = #function, line: Int = #line) {
+    public func debug(_ message: @escaping @Sendable @autoclosure () -> Any, file: String = #file, function: String = #function, line: Int = #line) {
         log(message, level: .debug, file: file, function: function, line: line)
     }
     
     @inlinable
-    public func info(_ message: @escaping @autoclosure () -> Any, file: String = #file, function: String = #function, line: Int = #line) {
+    public func info(_ message: @escaping @Sendable @autoclosure () -> Any, file: String = #file, function: String = #function, line: Int = #line) {
         log(message, level: .info, file: file, function: function, line: line)
     }
     
     @inlinable
-    public func warning(_ message: @escaping @autoclosure () -> Any, file: String = #file, function: String = #function, line: Int = #line) {
+    public func warning(_ message: @escaping @Sendable @autoclosure () -> Any, file: String = #file, function: String = #function, line: Int = #line) {
         log(message, level: .warning, file: file, function: function, line: line)
     }
     
     @inlinable
-    public func error(_ message: @escaping @autoclosure () -> Any, file: String = #file, function: String = #function, line: Int = #line) {
+    public func error(_ message: @escaping @Sendable @autoclosure () -> Any, file: String = #file, function: String = #function, line: Int = #line) {
         log(message, level: .error, file: file, function: function, line: line)
     }
 
