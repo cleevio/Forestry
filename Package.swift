@@ -17,7 +17,8 @@ let package = Package(
     platforms: [
         .iOS(.v11),
         .macOS(.v11),
-        .tvOS(.v11)
+        .tvOS(.v11),
+        .watchOS(.v7)
     ],
     products: [
         .library(name: "ForestryLoggerLibrary", targets: ["ForestryLoggerLibrary"]),
